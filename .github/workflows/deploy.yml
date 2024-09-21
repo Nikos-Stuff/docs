@@ -23,6 +23,8 @@ jobs:
         with:
           node-version: 'latest'
           cache: "pnpm"
+      - name: CD into action
+        run: cd nikostuffdocs
       - name: Install Dependencies
         run: pnpm i
       - name: Build Wiki Website
@@ -35,7 +37,7 @@ jobs:
           username: ${{ secrets.FTP_LOGIN }}
           password: ${{ SECRETS.FTP_PASSWD }}
           port: 21
-          local-dir: '/'
+          local-dir: 'nikostuffdocs/'
           server-dir: "/"
  #     - name: Clear Cloudflare cache
  #       env:
