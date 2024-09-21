@@ -28,15 +28,15 @@ jobs:
       - name: Build Wiki Website
         run: pnpm build
 
- #     - name: SFTP Deploy
- #       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
- #       with:
- #         server: ${{ secrets.FTP_HOST }}
- #         username: ${{ secrets.FTP_LOGIN }}
- #         password: ${{ SECRETS.FTP_PASSWD }}
- #         port: 21
- #         local-dir: 'dist/'
- #         server-dir: "/"
+      - name: SFTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_LOGIN }}
+          password: ${{ SECRETS.FTP_PASSWD }}
+          port: 21
+          local-dir: 'dist/'
+          server-dir: "/"
  #     - name: Clear Cloudflare cache
  #       env:
  #         ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
