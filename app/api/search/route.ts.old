@@ -1,7 +1,7 @@
-import { source } from '@/app/source';
-import { createSearchAPI } from 'fumadocs-core/search/server';
+import { source } from "@/app/source";
+import { createSearchAPI } from "fumadocs-core/search/server";
 
-export const { GET } = createSearchAPI('advanced', {
+export const { GET } = createSearchAPI("advanced", {
   indexes: source.getPages().map((page) => ({
     title: page.data.title,
     description: page.data.description,
@@ -10,6 +10,3 @@ export const { GET } = createSearchAPI('advanced', {
     url: page.url,
   })),
 });
-
-// This is just a sample to show how you might handle query params if needed
-export const dynamic = 'force-dynamic'; // Allow dynamic requests
