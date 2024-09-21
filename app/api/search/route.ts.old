@@ -10,3 +10,6 @@ export const { GET } = createSearchAPI('advanced', {
     url: page.url,
   })),
 });
+
+// This is just a sample to show how you might handle query params if needed
+export const dynamic = 'force-dynamic'; // Allow dynamic requests
