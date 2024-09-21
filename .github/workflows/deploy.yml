@@ -35,7 +35,7 @@ jobs:
           username: ${{ secrets.FTP_LOGIN }}
           password: ${{ SECRETS.FTP_PASSWD }}
           port: 21
-          local-dir: '.next/'
+          local-dir: '/'
           server-dir: "/"
  #     - name: Clear Cloudflare cache
  #       env:
