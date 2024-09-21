@@ -18,7 +18,7 @@ jobs:
       - name: List current directory
         run: ls -la
       - name: CD into action
-        run: cd nikostuffdocs
+        run: cd docs
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
