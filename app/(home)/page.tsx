@@ -7,7 +7,7 @@ export default function HomePage() {
       <p className="text-fd-muted-foreground">
         Witaj na stronie <code>docs.nikostuff.com</code> <br/> {' '}
         <Link
-          href="/docs"
+          href="/docs/mc"
           className="text-fd-foreground font-semibold underline"
         >
           Klkinij tutaj aby przejść dalej

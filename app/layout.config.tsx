@@ -9,13 +9,13 @@ import { type HomeLayoutProps } from 'fumadocs-ui/home-layout';
  */
 export const baseOptions: HomeLayoutProps = {
   nav: {
-    title: 'UniWiki - Niko`s Stuff',
+    title: 'Pomoc - Niko`s Stuff',
   },
   links: [
-    {
-      text: 'Dokumentacja',
-      url: '/docs',
-      active: 'nested-url',
-    },
+    // {
+    //   text: 'Dokumentacja',
+    //   url: '/docs',
+    //   active: 'nested-url',
+    // },
   ],
 };
