@@ -2,5 +2,5 @@
   "title": "🔥 Podstawy",
   "root": false,
   "defaultOpen": true,
-  "pages": ["hosting", "components"]
+  "pages": ["hosting", "server_setup"]
 }

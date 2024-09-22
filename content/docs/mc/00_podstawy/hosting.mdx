@@ -3,5 +3,89 @@ title: 1. Wybieranie Hostingu
 description: ''
 ---
 
-Pierwszym krokiem w otwarciu swojego serwera Minecraft jest wybranie hostingu
+Pierwszym krokiem w otwarciu swojego serwera Minecraft jest wybranie hostingu. Właściwy hosting ma kluczowe znaczenie dla wydajności i stabilności twojego serwera. Oto kilka opcji, które warto rozważyć:
 
+### ⌨️ Serwery Dedykowane
+Serwery dedykowane oferują pełną kontrolę nad zasobami, co czyni je idealnym rozwiązaniem dla dużych serwerów. Dzięki temu możesz dostosować konfigurację według własnych potrzeb. Pamiętaj jednak, że jest to najdroższa opcja.
+
+### 🌐 Hosting VPS (Virtual Private Server)
+Hosting VPS zapewnia więcej elastyczności i kontroli niż hosting współdzielony, a jednocześnie jest tańszy niż serwer dedykowany. Możesz uruchamiać różne instancje serwera i dostosowywać zasoby w zależności od potrzeb.
+
+### 🤝 Hosting Współdzielony
+Dla małych serwerów z ograniczoną liczbą graczy, hosting współdzielony może być wystarczający. To tańsza opcja, jednak możesz napotkać ograniczenia dotyczące zasobów oraz wydajności.
+
+
+
+
+<br />
+<br />
+
+
+
+### 👀 Cechy, na które warto zwrócić uwagę
+- **Wydajność** – sprawdź, jakie zasoby są dostępne (CPU, RAM, przestrzeń dyskowa).
+- **Lokalizacja serwerów** – wybierz hosting, który ma serwery blisko twojej lokalizacji lub lokalizacji graczy, aby zminimalizować opóźnienia.
+- **Wsparcie techniczne** – upewnij się, że dostawca hostingu oferuje solidne wsparcie w razie problemów.
+- **Możliwość rozbudowy** – sprawdź, czy możesz łatwo zwiększyć zasoby, gdy twój serwer zacznie się rozwijać.
+
+<br />
+<br />
+
+
+### 🧀 Popularne usługi
+import { Banner } from 'fumadocs-ui/components/banner';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+ 
+<Accordions>
+  <Accordion title="IceHost" className="shimmer">
+    <Banner 
+      variant="rainbow"
+      changeLayout={false}
+      className="text-2xl p-5 h-20 rounded-lg transition-all duration-300 ease-in-out transform hover:h-25 hover:text-3xl"
+    >
+      🌟 Zalecany
+    </Banner>
+    <p>IceHost oferuje świetną wydajność i wsparcie techniczne, co czyni go idealnym wyborem dla nowych serwerów Minecraft.</p>
+    <Card title="Zobacz więcej" href="https://icehost.pl" className="w-full text-center" />
+  </Accordion>
+  
+  <Accordion title="Apex Hosting">
+    <Banner 
+      variant="rainbow"
+      changeLayout={false}
+      className="text-2xl p-5 h-20 rounded-lg transition-all duration-300 ease-in-out transform hover:h-25 hover:text-3xl"
+    >
+      🌟 Popularny
+    </Banner>
+    <p>Apex Hosting zapewnia łatwą konfigurację i różnorodne plany, idealne dla graczy szukających elastyczności.</p>
+    <Card title="Zobacz więcej" href="https://apexminecrafthosting.com" className="w-full text-center" />
+  </Accordion>
+  
+  <Accordion title="Shockbyte">
+    <Banner 
+      variant="rainbow"
+      changeLayout={false}
+      className="text-2xl p-5 h-20 rounded-lg transition-all duration-300 ease-in-out transform hover:h-25 hover:text-3xl"
+    >
+      🌟 Ekonomiczny
+    </Banner>
+    <p>Shockbyte to świetna opcja dla tych, którzy szukają taniego hostingu z dobrą wydajnością.</p>
+    <Card title="Zobacz więcej" href="https://shockbyte.com" className="w-full text-center" />
+  </Accordion>
+  
+  <Accordion title="ScalaCube">
+    <Banner 
+      variant="rainbow"
+      changeLayout={false}
+      className="text-2xl p-5 h-20 rounded-lg transition-all duration-300 ease-in-out transform hover:h-25 hover:text-3xl"
+    >
+      🌟 Wszechstronny
+    </Banner>
+    <p>ScalaCube oferuje możliwość łatwej instalacji modów i wtyczek, co czyni go dobrym wyborem dla modowanych serwerów.</p>
+    <Card title="Zobacz więcej" href="https://scalacube.com/pl" className="w-full text-center" />
+  </Accordion>
+</Accordions>
+
+
+
+Podsumowując, wybór odpowiedniego hostingu jest kluczowy dla sukcesu twojego serwera Minecraft. Po zebraniu informacji o różnych opcjach, zastanów się, która z nich najlepiej odpowiada twoim potrzebom i budżetowi.

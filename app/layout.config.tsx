@@ -7,9 +7,16 @@ import { type HomeLayoutProps } from 'fumadocs-ui/home-layout';
  * Home Layout: app/(home)/layout.tsx
  * Docs Layout: app/docs/layout.tsx
  */
+import React from 'react';
+
 export const baseOptions: HomeLayoutProps = {
   nav: {
-    title: 'Pomoc - Niko`s Stuff',
+    transparentMode: 'always',
+    title: (
+      <span>
+        <span style={{ color: 'orange' }}>🔶 Beta</span> | Pomoc - Niko`s Stuff
+      </span>
+    ),
   },
   links: [
     // {
@@ -18,4 +25,5 @@ export const baseOptions: HomeLayoutProps = {
     //   active: 'nested-url',
     // },
   ],
+  
 };
