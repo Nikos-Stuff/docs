@@ -9,11 +9,11 @@ import { type HomeLayoutProps } from 'fumadocs-ui/home-layout';
  */
 export const baseOptions: HomeLayoutProps = {
   nav: {
-    title: 'My App',
+    title: 'UniWiki - Niko`s Stuff',
   },
   links: [
     {
-      text: 'Documentation',
+      text: 'Dokumentacja',
       url: '/docs',
       active: 'nested-url',
     },
