@@ -1,0 +1,258 @@
+---
+title: Instalacja Pluginów
+description: 'Podstawowe wtyczki itp.'
+icon: 'plug'
+---
+import { Banner } from 'fumadocs-ui/components/banner';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { ImageZoom } from 'fumadocs-ui/components/image-zoom';
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+
+Zaszliśmy już dosyć daleko! Wybornie!<br/>
+Teraz nadszedł czas aby pomyśleć dokładnie co chcemy dodać na nasz super serwer.
+
+## 🖌️ Klasyki
+Otwarty serwer - tym bardziej __non-premium__ jest bardzo niebezpieczny!<br/>
+Dlatego też oto kilka klasycznych pluginów typu must-have które ułatwią ci start.
+
+<Accordions>
+  <Accordion title="AuthMe" className="">
+    <Banner 
+      variant="normal"
+      changeLayout={false}
+      className="dark:bg-[#1f1f2e52] text-2xl p-5 h-32 rounded-lg transition-all duration-300 ease-in-out transform hover:h-36 hover:text-3xl"
+    >
+      AuthMe
+    </Banner>
+
+    Istnieje wiele pluginów, które zabezpieczą Twój serwer, lecz AuthMe jest najbardziej znany i ceniony. Zapewnia dodatkową ochronę poprzez logowanie graczy za pomocą hasła, co jest szczególnie przydatne na serwerach bez autoryzacji premium.
+    Jest prosty w konfiguracji i bardzo efektywny.
+
+    <Card title="Pobierz" href="https://www.spigotmc.org/resources/authmereloaded.6269" className="w-full text-center" />
+  </Accordion>
+
+  <Accordion title="EssentialsX" className="">
+    <Banner 
+      variant="normal"
+      changeLayout={false}
+      className="dark:bg-[#1f1f2e52] text-2xl p-5 h-32 rounded-lg transition-all duration-300 ease-in-out transform hover:h-36 hover:text-3xl"
+    >
+      EssentialsX
+    </Banner>
+
+    EssentialsX to jeden z podstawowych pluginów na każdy serwer. Oferuje szeroki wachlarz funkcji, takich jak komendy administracyjne, system teleportacji, zarządzanie ekonomią, sethome, spawn i wiele innych. Bez niego trudno zarządzać serwerem!
+
+    <Card title="Pobierz" href="https://essentialsx.net/downloads.html" className="w-full text-center" />
+  </Accordion>
+
+  <Accordion title="LuckPerms" className="">
+    <Banner 
+      variant="normal"
+      changeLayout={false}
+      className="dark:bg-[#1f1f2e52] text-2xl p-5 h-32 rounded-lg transition-all duration-300 ease-in-out transform hover:h-36 hover:text-3xl"
+    >
+      LuckPerms
+    </Banner>
+
+    LuckPerms to potężny plugin do zarządzania uprawnieniami. Umożliwia tworzenie grup graczy, przypisywanie im ról i zarządzanie dostępem do różnych komend i funkcji. Jest szybki, niezawodny i posiada intuicyjny interfejs internetowy.
+
+    <Card title="Pobierz" href="https://luckperms.net/download" className="w-full text-center" />
+  </Accordion>
+
+  <Accordion title="Vault" className="">
+    <Banner 
+      variant="normal"
+      changeLayout={false}
+      className="dark:bg-[#1f1f2e52] text-2xl p-5 h-32 rounded-lg transition-all duration-300 ease-in-out transform hover:h-36 hover:text-3xl"
+    >
+      Vault
+    </Banner>
+
+    Vault to plugin, który służy jako baza dla wielu innych pluginów. Umożliwia integrację systemu ekonomii, uprawnień i innych funkcji. Jest niezbędny do działania wielu pluginów, takich jak EssentialsX, Jobs Reborn czy sklepy graczy.
+
+    <Card title="Pobierz" href="https://www.spigotmc.org/resources/vault.34315" className="w-full text-center" />
+  </Accordion>
+
+  <Accordion title="WorldEdit" className="">
+    <Banner 
+      variant="normal"
+      changeLayout={false}
+      className="dark:bg-[#1f1f2e52] text-2xl p-5 h-32 rounded-lg transition-all duration-300 ease-in-out transform hover:h-36 hover:text-3xl"
+    >
+      WorldEdit
+    </Banner>
+
+    WorldEdit to potężne narzędzie do szybkiej edycji mapy. Umożliwia budowanie, kopiowanie i przenoszenie struktur, a także usuwanie dużych obszarów w kilka sekund. Jest niezastąpiony, jeśli chcesz szybko zarządzać terenami na serwerze.
+
+    <Card title="Pobierz" href="https://enginehub.org/worldedit/" className="w-full text-center" />
+  </Accordion>
+
+  <Accordion title="WorldGuard" className="">
+    <Banner 
+        variant="normal"
+        changeLayout={false}
+        className="dark:bg-[#1f1f2e52] text-2xl p-5 h-32 rounded-lg transition-all duration-300 ease-in-out transform hover:h-36 hover:text-3xl"
+    >
+      WorldGuard
+    </Banner>
+
+    WorldGuard to jeden z najważniejszych pluginów do ochrony serwera. Pozwala tworzyć regiony, w których możesz określić szczegółowe zasady, takie jak blokowanie niszczenia bloków, budowania, walki między graczami, używania ognia i innych. Dzięki temu możesz chronić ważne obszary, takie jak spawn czy własności graczy, przed niechcianymi działaniami.
+
+    <Card title="Pobierz" href="https://enginehub.org/worldguard/" className="w-full text-center" />
+  </Accordion>
+
+</Accordions>
+
+## 📝 Pliki konfiguracyjne
+Pliki ``YAML`` - to co tygryski lubią najbardziej ~~(A tak na serio to nienawidzą)~~
+
+### ❓ Ale co to w ogóle jest?
+YAML to sposób przechowywania danych w sposób łatwy do odczytania przez ludzi.
+Został zaprojektowany tak, aby był jak najprostszy w użyciu. Oto przykład, jak wygląda YAML:
+
+```yaml
+# To jest linia komentarza - komentarze są ignorowane przez system
+tekst: To jest przykładowy tekst #Komentarz może być także na końcu linii
+liczba: 15 # To jest liczba
+
+# Możemy stworzyć listę wartości (zwaną tablicą)
+lista typ 1: [wartość1, wartość2, "wartość3: ze specjalnym znakiem!"]
+
+# Lista może być też zapisana w bardziej czytelny sposób
+lista typ 2:
+  - wartość1
+  - wartość2
+  - "Specjalne znaki, jak cudzysłów \", muszą być ucieczkowane"
+
+# Tworzymy tzw. mapę (asocjacyjną tablicę), która łączy klucze z wartościami
+mapa typ 1:
+  klucz1: wartość1
+  klucz2: wartość2
+  klucz3: [może, być, też, listą]
+  klucz4:
+    podklucz1: "Możemy zagnieżdżać mapy wewnątrz innych map!"
+
+# Mapa może być też zapisana w jednej linii
+mapa typ 2: {klucz1: wartość1, klucz2: wartość2}
+
+# Tekst "złożony", który połączy linie w jeden ciąg
+złożony tekst: >
+  Te linie zostaną
+  połączone w jeden tekst.
+
+  Pusta linia zaczyna
+  nowy akapit.
+
+# Tekst "dosłowny", który zachowa wszystkie łamania linii
+dosłowny tekst: |
+  W tym przykładzie
+  linie będą zachowane tak, jak są.
+  Każde wcięcie na początku linii
+  zostanie usunięte.
+    Wcięcia dodatkowe będą zachowane.
+
+```
+
+Innym formatem danych powszechnie używanym do odczytu przez ludzi jest JSON.
+JSON nie jest najłatwiejszy do odczytania dla ludzi, ponieważ używa nawiasów do oznaczania zagnieżdżonych struktur zamiast wcięć.
+YAML jest bardzo łatwy do zepsucia, więc musisz być bardzo ostrożny podczas edycji plików konfiguracyjnych, które go używają.
+Poniżej omówimy podstawowe zasady dotyczące YAML, abyś mógł upewnić się, że Twój serwer działa tak płynnie, jak to możliwe.
+
+### 🗒️ Zasady YAML
+Uproszczona specyfikacja
+
+- Wcięcia za pomocą spacji są używane do określania struktury. Jednak znak tabulacji nie może być używany.<br/> 
+  Możesz używać dowolnej liczby spacji, ale większość pluginów stosuje formatowanie YAML z wcięciami o długości 2 spacji na każdy poziom wcięcia.
+
+- Komentarze są oznaczane symbolem numeru lub hashtagiem: ``#``<br/>
+  Komentarze mogą znajdować się w oddzielnej linii lub na końcu dowolnej linii. Między danymi a komentarzem musi być spacja.
+
+- Elementy listy są oznaczane przez wiodący myślnik: ``-``<br/>
+  Elementy listy mogą być również ujęte w nawiasy kwadratowe ``[ ]`` i rozdzielone przecinkiem oraz spacją.
+
+- Elementy słownika są reprezentowane za pomocą klucza i jego wartości oddzielonych dwukropkiem oraz spacją `klucz: wartość`.<br/>
+  Dwa elementy na tym samym poziomie wcięcia nie mogą mieć takiej samej nazwy klucza. <br/>
+  Mogą być również zamknięte w nawiasy klamrowe ``{ }`` i oddzielone przecinkiem oraz spacją.
+
+- Tekst użyty jako klucz lub wartość nie musi być ujęty w pojedyncze ``'`` lub podwójne ``"`` cudzysłowy. 
+  Możesz jednak ich użyć, jeśli chcesz uwzględnić wiodącą lub końcową spację.
+
+- Będziesz także chciał użyć podwójnych cudzysłowów, jeśli chcesz, aby ciąg zawierał specjalne znaki YAML.<br/>
+  Specjalne znaki YAML różnią się w zależności od miejsca, w którym znajdujesz się w strukturze danych.
+
+### 🛑 Częste błędy
+Oops! Zapomniałem o ``"``!
+
+#### Zduplikowany klucz
+
+```log
+duplicated mapping key (3:3)
+
+ 1 | przyklad_1:
+ 2 |   test: Witaj Świecie!
+ 3 |   test: Hello World!
+-------^
+```
+Posiadasz zduplikowany wpisy o tej samej wartości:
+```yaml
+przyklad_1:
+  test: Witaj Świecie!
+  test: Hello World!
+```
+Usuń duplikat aby naprawić problem.
+
+---
+
+#### Złe wcięcie
+
+```log
+bad indentation of a mapping entry (3:2)
+
+ 1 | punkty:
+ 2 |   Team_A: 10
+ 3 |  Team_B: 4
+------^
+ 4 |   Team_C: 7
+```
+Wcięcie wiersza nie odpowiada bieżącemu poziomowi wcięcia.
+```yaml
+punkty:
+  Team_A: 10
+ Team_B: 4
+  Team_C: 7
+```
+Popraw wcięcie wiersza tak, aby odpowiadało wcięciom powyżej.
+
+---
+
+#### TAB w Kodzie
+Ten błąd może się różnić, Oto kilka przykładów jak on jednak wygląda:
+```log
+tab characters must not be used in indentation (3:3)
+
+ 1 | punkty:
+ 2 |   Team_A: 10
+ 3 |   →Team_B: 4
+-------^
+ 4 |   Team_C: 7
+```
+```log
+while scanning for the next token
+found character '\t' that cannot start any token
+  in "<unicode string>", line 6, column 1:
+        - value
+    ^
+```
+```log
+found character '\t' that cannot start any token in "<unicode string>", line 6, character 1
+```
+```log
+found character that cannot start any token while scanning for the next token at line 6 column 1
+```
+```log
+found a tab character that violate intendation
+```
+
+## 👀 Podsumowanie
+Konfigurowanie pluginów nie jest jakoś tragicznym zadaniem, lecz warto mieć na uwadze te oto powyższe wymienione podstawy!

@@ -1,10 +1,12 @@
 ---
-title: 1. Wybieranie Hostingu
-description: ''
+title: Wybieranie Hostingu
+description: 'Proste wytłumaczenie.'
+icon: 'server'
 ---
 
-Pierwszym krokiem w otwarciu swojego serwera Minecraft jest wybranie hostingu. Właściwy hosting ma kluczowe znaczenie dla wydajności i stabilności twojego serwera. Oto kilka opcji, które warto rozważyć:
-
+Pierwszym ważnym krokiem jest wybranie hostingu na którym to postawisz swój serwer.
+Na rynku dostępne jest wiele opcji lecz nie każda może być idealna dla Ciebie.
+## ✏️ Typy serwerów:
 ### ⌨️ Serwery Dedykowane
 Serwery dedykowane oferują pełną kontrolę nad zasobami, co czyni je idealnym rozwiązaniem dla dużych serwerów. Dzięki temu możesz dostosować konfigurację według własnych potrzeb. Pamiętaj jednak, że jest to najdroższa opcja.
 
@@ -13,26 +15,11 @@ Hosting VPS zapewnia więcej elastyczności i kontroli niż hosting współdziel
 
 ### 🤝 Hosting Współdzielony
 Dla małych serwerów z ograniczoną liczbą graczy, hosting współdzielony może być wystarczający. To tańsza opcja, jednak możesz napotkać ograniczenia dotyczące zasobów oraz wydajności.
-
-
-
-
 <br />
 <br />
 
 
-
-### 👀 Cechy, na które warto zwrócić uwagę
-- **Wydajność** – sprawdź, jakie zasoby są dostępne (CPU, RAM, przestrzeń dyskowa).
-- **Lokalizacja serwerów** – wybierz hosting, który ma serwery blisko twojej lokalizacji lub lokalizacji graczy, aby zminimalizować opóźnienia.
-- **Wsparcie techniczne** – upewnij się, że dostawca hostingu oferuje solidne wsparcie w razie problemów.
-- **Możliwość rozbudowy** – sprawdź, czy możesz łatwo zwiększyć zasoby, gdy twój serwer zacznie się rozwijać.
-
-<br />
-<br />
-
-
-### 🧀 Popularne usługi
+## 🧀 Popularne usługi
 import { Banner } from 'fumadocs-ui/components/banner';
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
  
@@ -87,5 +74,15 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 </Accordions>
 
 
+## 👀 O czym warto pamiętać
+<Callout title="Lekkie 'Scamy' " type="warn">
+  Niektóre opcje na rynku posiadają "haczyki" - często przytrafia się tak że podane informacje są zbyt piękne aby były prawdziwe. <br/>
+  Dlatego zawsze dokładnie sprawdzaj np opinie danego dostawcy na TrustPilocie / Reddicie itp.
+</Callout>
 
-Podsumowując, wybór odpowiedniego hostingu jest kluczowy dla sukcesu twojego serwera Minecraft. Po zebraniu informacji o różnych opcjach, zastanów się, która z nich najlepiej odpowiada twoim potrzebom i budżetowi.
+<Callout title="Dynamiczne 'Limity'" type="warn">
+  W niektórych przypadkach nie jest to zła rzecz, lecz "tańsze" opcje na rynku w większości posiadają różnolite ograniczenia takie jak np:
+  - Brak Pluginów (Tylko czysta Vanilla)
+  - Limity (Maks ilość graczy / Modów / Pluginów)
+  - Automatyczne Wyłączanie Serwera (Przy np. braku aktywności / obciążeniu CPU 100%+)
+</Callout>

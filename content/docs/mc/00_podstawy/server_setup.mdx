@@ -1,14 +1,247 @@
 ---
-title: 2. Instalacja Serwera
-description: ''
+title: Instalacja Serwera
+description: 'Wybieranie Silnika itp.'
+icon: 'install'
 ---
 import { Banner } from 'fumadocs-ui/components/banner';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { ImageZoom } from 'fumadocs-ui/components/image-zoom';
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+
+  Po wybraniu swojego idealnego hostingu, pierwszym dobrym krokiem jest wybranie silnika na którym to wszystko
+  będzie się opierać.<br/>
+  W Internecie istnieje wiele dobrych opcji - W tej kategorii wymienie ich kilka.
 
 
+  ## 🤔 Wybór Silnika
+  W większości przypadków, każda osoba na pewno poleciła by Ci "Paper"-a, lecz istnieje kilka alternatyw (forków) które
+  spełnią swoje zadanie o niebo lepiej niż sam czysty Paper! Oto klika z nich (posortowane według forków):
+
+
+<Accordions>
+  <Accordion title="Paper" className="dark:bg-[#4e4e4e]">
     <Banner 
-      
+      variant="normal"
       changeLayout={false}
-      className="text-2xl p-5 h-40 rounded-lg transition-all duration-300 ease-in-out transform hover:text-3xl"
+      className="dark:bg-[#1f1f2e52] text-2xl p-5 h-32 rounded-lg transition-all duration-300 ease-in-out transform hover:h-36 hover:text-3xl"
     >
-      🛑 Niedługo
+      <img 
+        src="https://api.nikostuff.com/v1/img/uploads/container_ec46113a1b8b38bd89c0729ef099582b/9685e40666f1c8dd17c01.png"
+        alt="Paper Icon"
+        className="h-full w-auto mr-7"
+      />
+      Paper MC
     </Banner>
+
+    Paper to najpopularniejszy silnik serwerowy oparty na Minecraft Vanilla. Charakteryzuje się wyjątkową wydajnością oraz stabilnością, umożliwiającą płynne działanie nawet przy dużej liczbie graczy.
+
+    **Wybierz Paper, jeśli:**
+    - Szukasz rozwiązania jak najbliższego oryginalnej wersji gry (Paper nie wprowadza istotnych zmian w rozgrywce).
+    - Potrzebujesz zwiększonej wydajności dla dużej liczby graczy.
+    - Zależy Ci na stabilności i bezpieczeństwie serwera.
+
+    <Card title="Pobierz" href="https://papermc.io/downloads/paper" className="w-full text-center" />
+  </Accordion>
+
+  <Accordion title="Purpur" className="dark:bg-[#3a175c]">
+    <Banner 
+      variant="normal"
+      changeLayout={false}
+      className="dark:bg-[#1f1f2e52] text-2xl p-5 h-32 rounded-lg transition-all duration-300 ease-in-out transform hover:h-36 hover:text-3xl"
+    >
+      <img 
+        src="https://purpurmc.org/docs/images/purpur-small.png"
+        alt="Purpur Icon"
+        className="h-full w-auto mr-7"
+      />
+      Purpur MC
+    </Banner>
+
+    Purpur to fork silnika Paper, który nie koncentruje się wyłącznie na wydajności, lecz oferuje dodatkowe funkcje i możliwości konfiguracji. W ostatnich aktualizacjach otrzymał również poprawki od Pufferfish, zwiększające jego efektywność.
+
+    **Wybierz Purpur, jeśli:**
+    - Chcesz wprowadzić drobne modyfikacje do rozgrywki.
+    - Planujesz stworzyć bardziej zaawansowany serwer z większymi możliwościami personalizacji.
+    - Potrzebujesz lepszej wydajności, szczególnie dzięki łatkom z Pufferfish.
+
+    <Card title="Pobierz" href="https://purpurmc.org/downloads" className="w-full text-center" />
+  </Accordion>
+
+  <Accordion title="Pufferfish" className="dark:bg-[#5c5117]">
+    <Banner 
+      variant="normal"
+      changeLayout={false}
+      className="dark:bg-[#1f1f2e52] text-2xl p-5 h-32 rounded-lg transition-all duration-300 ease-in-out transform hover:h-36 hover:text-3xl"
+    >
+      <img 
+        src="https://preview.redd.it/9jg6hh5vpzm01.png?auto=webp&s=5f65fe548cf3f005630f7e89532c3b9efae14014"
+        alt="Pufferfish Icon"
+        className="h-full w-auto mr-7"
+      />
+      Pufferfish MC
+    </Banner>
+
+    Pufferfish to kolejny fork Papera, zaprojektowany głównie z myślą o maksymalnej wydajności i stabilności. To najszybsze rozwiązanie spośród wymienionych, choć niektóre pluginy i datapacki mogą mieć z nim problemy kompatybilnościowe.
+
+    **Wybierz Pufferfish, jeśli:**
+    - Zależy Ci na jak najmniej zmodyfikowanym doświadczeniu gry.
+    - Chcesz obsługiwać jak największą liczbę graczy bez utraty wydajności.
+    - Szukasz prostego, ale wyjątkowo wydajnego rozwiązania.
+
+    <Card title="Pobierz" href="https://pufferfish.host/downloads" className="w-full text-center" />
+  </Accordion>
+  </Accordions>
+
+
+  ## 📥 Konfiguracja Serwera
+  Po wybraniu silnika czas na konfigurację! <br/>
+  Jest to bardzo prosty etap - w większości przypadków domyślna konfiguracja wystarcza. <br/>
+  W tym poradniku oraz ogólnie na tej stronie oprzemy się o hosting icehost.pl - (Pterodactyl Panel)
+
+  <div className='steps [&_h3]:step'>
+
+  ### Instalacja Serwera
+  Ok! Zaczynamy od czegoś prostego.<br/>
+  Pobierz swój ulubiony silnik po czym zmień jego nazwę ``purpur-1.21.1-2304.jar`` -> ``server.jar``
+
+  ### Prześlij plik przez SFTP
+      <sub>*Polecamy WinSCP [Pobierz go tutaj](https://winscp.net/download/WinSCP-6.3.5-Setup.exe/download)*</sub>
+        <ImageZoom 
+        src="https://api.nikostuff.com/v1/img/uploads/container_ec46113a1b8b38bd89c0729ef099582b/f8805eed66f1b687274f6.png"
+        alt="Pterodactyl Section"
+        width={100}
+        height={100}
+        className="h-full w-auto mr-7 rounded-lg"
+      />
+      W swoim serwerze wejdź w zakładkę **Ustawienia Serwera**.<br/>
+      Znajdziesz tutaj wszystkie dane dotyczące loginu do SFTP -> Kliknij **POŁĄCZ Z SFTP**.<br/>
+      <sub>Klikając SHOW odkryjesz hasło | ZRESETUJ HASŁO - Wygeneruje nowe losowe hasło.</sub>
+
+      ---
+      
+      <ImageZoom 
+        src="https://api.nikostuff.com/v1/img/uploads/container_ec46113a1b8b38bd89c0729ef099582b/6d54eb8f66f1b5f006f12.png"
+        alt="Question"
+        width={100}
+        height={100}
+        className="h-full w-auto mr-7 rounded-lg"
+      />
+      Powinno Ci się ukazać zapytanie czy otworzyć aplikacje SFTP (np WinSCP lub FileZilla).<br/>
+      Kliknij **Otwórz**.
+
+      ---
+
+      <ImageZoom 
+        src="https://api.nikostuff.com/v1/img/uploads/container_ec46113a1b8b38bd89c0729ef099582b/75973edf66f1b8dd9afdb.png"
+        alt="WINSCP Login"
+        width={100}
+        height={100}
+        className="h-full w-auto mr-7 rounded-lg"
+      />
+      Wspaniale! Teraz wpisz / wklej swoje hasło z panelu (Info o SFTP -> Hasło).
+
+      ---
+
+      <ImageZoom 
+        src="https://api.nikostuff.com/v1/img/uploads/container_ec46113a1b8b38bd89c0729ef099582b/7b78a07966f1ba1e4d624.png"
+        alt="WINSCP ui"
+        width={100}
+        height={100}
+        className="h-full w-auto mr-7 rounded-lg"
+      />
+      Po zalogowaniu się tak to powinno mniej więcej wyglądać.<br/>
+      Z tego widoku możesz przesyłać / edytować / usuwać byle jakie pliki bez żadnych ograniczeń.
+
+      ---
+
+      <ImageZoom 
+        src="https://api.nikostuff.com/v1/img/uploads/container_ec46113a1b8b38bd89c0729ef099582b/60f2b04d66f1bd1f87c68.gif"
+        alt="WINSCP ui"
+        width={100}
+        height={100}
+        className="h-full w-auto mr-7 rounded-lg"
+        unoptimized="true"
+      />
+      I tak oto wysyłamy jakiekolwiek pliki na nasz serwer! W tym przypadku ``server.jar``
+
+    ### Pierwszy Start
+    <Callout title="Ważna notka" type="warn">
+      Przed uruchomieniem serwera upewnij się że wybrałeś poprawną wersje Javy!
+      <ImageZoom 
+        src="https://api.nikostuff.com/v1/img/uploads/container_ec46113a1b8b38bd89c0729ef099582b/d328f23966f1bf6dcec6f.gif"
+        alt="Java Selection"
+        width={50}
+        height={50}
+        className="h-full w-auto mr-7 rounded-lg"
+        unoptimized="true"
+      />
+    <Tabs items={['Java 8', 'Java 11', 'Java 16', 'Java 17', 'Java 21']}>
+      <Tab value="Java 8" className="text-center">Minecraft ``1.8 - 1.11``</Tab>
+      <Tab value="Java 11" className="text-center">Minecraft ``1.12 - 1.16.4``</Tab>
+      <Tab value="Java 16" className="text-center">Minecraft ``1.16.5``</Tab>
+      <Tab value="Java 17" className="text-center">Minecraft ``1.17.1-1.19.2``</Tab>
+      <Tab value="Java 21" className="text-center">Minecraft ``1.20+``</Tab>
+    </Tabs>
+    </Callout>
+    Pierwszy start serwera może trochę zająć, lecz po pierwszym pomyślnym uruchomieniu dalsze restarty powinny być szybsze.<br/>
+    <sub>Zależy od ilości pluginów itp.</sub>
+
+    ```log title="latest.log"
+    Loading libraries, please wait...
+    [21:31:10 INFO]: Starting minecraft server version 1.21.1
+    [21:31:10 INFO]: Preparing level "world"
+    [21:31:10 INFO]: Preparing start region for dimension minecraft:overworld
+    [21:31:10 INFO]: Time elapsed: 363 ms
+    [21:31:11 INFO]: Preparing start region for dimension minecraft:the_nether
+    [21:31:11 INFO]: Time elapsed: 147 ms
+    [21:31:11 INFO]: Preparing start region for dimension minecraft:the_end
+    [21:31:11 INFO]: Time elapsed: 366 ms
+    [21:31:11 INFO]: Running delayed init tasks
+    [21:31:11 INFO]: Done (2.274s)! For help, type "help"
+    ```
+    Gratulację! Twój serwer już jako tako stoi na nogach :D
+
+  ### Wgrywanie pluginów / datapacków
+    Pamiętasz jak przesyłałeś plik ``server.jar``?<br/>
+    Przesyłanie pluginów jak i czegokolwiek innego to również bułka z masłem!<br/><br/>
+    Pluginy możesz znaleźć na: [Paper Hangar](https://hangar.papermc.io/?page=0&sort=-stars) | [Modrinth](https://modrinth.com/plugins) | [Spigotmc](https://www.spigotmc.org/resources/)<br/>
+    Instalowanie ich to nic prostszego niż wsadzenie go do folderu ``/plugins``! <br/>
+
+    Jeśli chcesz dodać jakiś datapack wystarczy go wrzucić do ``/world/datapacks``!<br/>
+    Datapacki znajdziesz na: [Modrinth](https://modrinth.com/datapacks) | [PlanetMinecraft](https://www.planetminecraft.com/data-packs/)
+
+    <Files>
+      <Folder name="config" disabled={true}/>
+      <Folder name="libraries" disabled={true}/>
+      <Folder name="logs" disabled={true}/>
+      <Folder name="plugins" defaultOpen disabled={true}>
+        <Folder name="LuckPerms" disabled={true}/>
+        <File name="LuckPerms.jar" />
+      </Folder>
+      <Folder name="versions" disabled={true}/>
+      <Folder name="world" defaultOpen disabled={true}>
+      <Folder name="datapacks" defaultOpen disabled={true}>
+        <Folder name="bukkit" disabled={true}/>
+        <File name="MójDatapack.zip" />
+      </Folder>
+      </Folder>
+      <Folder name="world_nether" disabled={true}/>
+      <Folder name="world_the_end" disabled={true}/>
+   </Files>
+
+   <Callout title="Ważna notka" type="error">
+      Nigdy nie używaj ``/reload``! <br/>
+      Jeśli chcesz przeładować datapacki użyj ``minecraft:reload``<br/>
+      A jeśli chodzi o pluginy - większość pluginów ma swoją komendę! np ``/essentials reload``
+   </Callout>
+
+
+   ### Ostatnie szlify
+   Ta sekcja już za bardzo nie jest istotna, ponieważ jak już wcześniej wspomniałem, domyślna konfiguracja da radę.
+   Ale i tak takie tam swoje małe smaczki tutaj zostawię.<br/>
+
+   - [Minecraft Optimization Guide](https://github.com/YouHaveTrouble/minecraft-optimization/blob/1.21/README.md)
+   - [Spark (Większość wersji już go ma build-in)](https://spark.lucko.me)
+
+  </div>
