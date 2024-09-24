@@ -9,7 +9,7 @@ interface Props {
 }
 
 const variants = {
-  hidden: { opacity: 0.3, x: 10, y: 0, scale: 1 },
+  hidden: { opacity: 0.3, x: 0 , y: 10, scale: 1 },
   enter: { opacity: 1, x: 0, y: 0, scale: 1 },
 };
 
