@@ -5,7 +5,7 @@ export default function HomePage() {
     <main className="flex h-screen flex-col justify-center text-center">
       <h1 className="mb-4 text-2xl font-bold">Witaj!</h1>
       <p className="text-fd-muted-foreground">
-        Witaj na stronie <code>docs.nikostuff.com</code> <br/> {' '}
+        Witaj na stronie <code>help.nikostuff.com</code> <br/> {' '}
         <Link
           href="/docs/mc"
           className="text-fd-foreground font-semibold underline"
