@@ -39,7 +39,10 @@ export default function PageTransition({ children }: Props) {
         initial="hidden"
         animate="enter"
         transition={{ type: "spring", stiffness: 100 }}
-        style={{ display: 'flex' }}
+        style={{
+            display: 'flex',
+            maxWidth: '100%', // Forgor to add this
+          }}
         >
         {displayedChildren}
         </motion.div>
