@@ -4,7 +4,8 @@ import { baseOptions } from '../layout.config';
 import { baseUrl, createMetadata } from '../utils/metadata';
 import { source } from '@/app/source';
 import { RootToggle } from 'fumadocs-ui/components/layout/root-toggle';
-import { I18nProvider } from 'fumadocs-ui/i18n'; // Import the I18nProvider
+import { I18nProvider } from 'fumadocs-ui/i18n';
+import PageTransition from '../PageTransition'; // Import the PageTransition component
 
 
 export const metadata = createMetadata({
@@ -17,10 +18,10 @@ export const metadata = createMetadata({
 });
 
 export default function Layout({ children }: { children: ReactNode }) {
-  const locale = 'pl'; 
+  const locale = 'pl';
 
   const translations = {
-    pl: { 
+    pl: {
       search: 'Wyszukaj',
       searchNoResult: 'Brak wyników',
       toc: 'Rozpiska',
@@ -33,12 +34,11 @@ export default function Layout({ children }: { children: ReactNode }) {
       editOnGithub: 'Edytuj na GitHubie',
     },
   };
-  
 
   return (
     <I18nProvider
-      locale={locale} // Current locale
-      translations={translations[locale]} // Get translations for the current locale
+      locale={locale}
+      translations={translations[locale]}
       locales={[
         { name: 'Polski', locale: 'pl' },
       ]}
@@ -67,7 +67,9 @@ export default function Layout({ children }: { children: ReactNode }) {
           ),
         }}
       >
-        {children}
+        <PageTransition>
+          {children}
+        </PageTransition>
       </DocsLayout>
     </I18nProvider>
   );
