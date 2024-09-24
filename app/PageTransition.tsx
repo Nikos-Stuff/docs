@@ -9,12 +9,12 @@ interface Props {
 }
 
 const variants = {
-  hidden: { opacity: 0, x: 0, y: 30 },
-  enter: { opacity: 1, x: 0, y: 0 },
+  hidden: { opacity: 0.3, x: 10, y: 0, scale: 1 },
+  enter: { opacity: 1, x: 0, y: 0, scale: 1 },
 };
 
 export default function PageTransition({ children }: Props) {
-  const pathname = usePathname(); // Use usePathname to get the current path
+  const pathname = usePathname(); // Get the current path
   const [displayedChildren, setDisplayedChildren] = useState(children);
   const [isMounted, setIsMounted] = useState(false);
 
@@ -33,19 +33,15 @@ export default function PageTransition({ children }: Props) {
   }
 
   return (
-        <motion.div
-        key={pathname}
-        variants={variants}
-        initial="hidden"
-        animate="enter"
-        transition={{ type: "spring", stiffness: 100 }}
-        style={{
-            display: 'flex',
-            maxWidth: '100%', // Forgor to add this
-          }}
-        >
-        {displayedChildren}
-        </motion.div>
-
+    <motion.div
+      key={pathname} // Change key on pathname to trigger animation
+      variants={variants}
+      initial="hidden"
+      animate="enter"
+      exit="hidden" // Optional: exit animation
+      transition={{ type: "spring", stiffness: 100 }}
+    >
+      {displayedChildren}
+    </motion.div>
   );
 }

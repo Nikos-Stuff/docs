@@ -5,7 +5,7 @@ import { baseUrl, createMetadata } from '../utils/metadata';
 import { source } from '@/app/source';
 import { RootToggle } from 'fumadocs-ui/components/layout/root-toggle';
 import { I18nProvider } from 'fumadocs-ui/i18n';
-import PageTransition from '../PageTransition'; // Import the PageTransition component
+
 
 
 export const metadata = createMetadata({
@@ -67,9 +67,9 @@ export default function Layout({ children }: { children: ReactNode }) {
           ),
         }}
       >
-        <PageTransition>
+        {/* <PageTransition> */}
           {children}
-        </PageTransition>
+        {/* </PageTransition> */}
       </DocsLayout>
     </I18nProvider>
   );

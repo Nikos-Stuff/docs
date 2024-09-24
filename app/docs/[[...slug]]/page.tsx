@@ -9,6 +9,7 @@ import {
 import { notFound } from 'next/navigation';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 
+
 export default async function Page({
   params,
 }: {
