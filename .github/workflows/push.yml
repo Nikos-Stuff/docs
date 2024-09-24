@@ -45,11 +45,11 @@ jobs:
       - name: Build Next.js app
         run: pnpm build
 
-      # Upload the build artifacts for GitHub Pages or preview purposes
-      - name: Upload build artifacts
+      # Upload the standalone build artifacts
+      - name: Upload standalone build artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.next/'  # Upload the .next build directory
+          path: '.next/standalone/'  # Upload only the .next/standalone directory
 
       # Save cache for the next build
       - name: Save build cache

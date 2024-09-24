@@ -16,6 +16,10 @@ const config = {
       },
     ],
   },
+
+  // Standalone output for optimized serverless deployment
+  output: 'standalone',
 };
 
+// Exporting the MDX enhanced config
 export default withMDX(config);
