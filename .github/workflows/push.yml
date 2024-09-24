@@ -45,10 +45,6 @@ jobs:
       - name: Build Next.js app
         run: pnpm build
 
-      # Optionally, if you're doing a static export
-      - name: Export static files
-        run: pnpm export
-
       # Upload the build artifacts for GitHub Pages or preview purposes
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
