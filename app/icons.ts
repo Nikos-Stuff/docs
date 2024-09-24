@@ -1,21 +1,15 @@
 // icons.js
-import { 
-    AcademicCapIcon,
-    CodeBracketIcon,
-    CodeBracketSquareIcon,
-    DivideIcon,
-    DocumentCurrencyBangladeshiIcon,
-    FolderArrowDownIcon,
-    PlusIcon,
-    ServerIcon,
-    // ... import all other icons you need
-  } from '@heroicons/react/24/solid';
+import { } from '@heroicons/react/24/solid';
+import { DoorOpenIcon, DownloadIcon, FileCodeIcon, Link2Icon, Plug, PlugIcon, Server, UserCog2Icon } from 'lucide-react';
   
   export const icons = {
-    server: ServerIcon,
-    install: FolderArrowDownIcon,
-    plus: PlusIcon,
-    plug: CodeBracketSquareIcon,
+    link: Link2Icon,
+    podstawy: UserCog2Icon,
+    server: Server,
+    install: DownloadIcon,
+    plus: DoorOpenIcon,
+    plug: PlugIcon,
+    file: FileCodeIcon
     // ... map all other icons
   };
   

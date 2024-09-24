@@ -1,6 +1,7 @@
 {
-  "title": "🔥 Podstawy",
+  "title": "Podstawy",
   "root": false,
   "defaultOpen": true,
-  "pages": ["hosting", "server_setup", "plugins_setup"]
+  "pages": ["hosting", "server_setup", "plugins_setup", "config_files"],
+  "icon": "podstawy"
 }
