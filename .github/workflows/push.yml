@@ -25,7 +25,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '16'  # Ensure compatibility with Next.js
+          node-version: 'latest' 
           cache: 'pnpm'
 
       - name: Install dependencies
