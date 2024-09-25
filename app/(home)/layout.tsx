@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { HomeLayout } from 'fumadocs-ui/home-layout';
 import { baseOptions } from '../layout.config';
 import { I18nProvider } from 'fumadocs-ui/i18n'; // Import the I18nProvider
-import { baseUrl, createMetadata } from '../utils/metadata';
+import {createMetadata } from '../utils/metadata';
 
 export const metadata = createMetadata({
   title: {
@@ -10,7 +10,6 @@ export const metadata = createMetadata({
     default: 'Pomoc | Niko`s Stuff',
   },
   description: 'Randomowa Pomoc lol',
-  metadataBase: baseUrl,
 });
 
 export default function Layout({ children }: { children: ReactNode }): React.ReactElement {
