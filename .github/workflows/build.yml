@@ -43,7 +43,9 @@ jobs:
             ${{ runner.os }}-nextjs
 
       - name: Build Next.js app
-        run: vercel build --prod
+        run: |
+         vercel pull --yes
+         vercel build --prod
 
       # Upload the standalone build artifacts
       - name: Upload standalone build artifacts
