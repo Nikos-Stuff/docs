@@ -44,8 +44,7 @@ jobs:
 
       - name: Build Next.js app
         run: |
-         vercel login --token ${{ secrets.VERCEL_TOKEN }}
-         vercel pull --yes
+         vercel pull --yes --token ${{ secrets.VERCEL_TOKEN }}
          vercel build --prod
 
       # Upload the standalone build artifacts
