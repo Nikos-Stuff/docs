@@ -1,4 +1,4 @@
-import { DocsLayout } from 'fumadocs-ui/layout';
+import { DocsLayout } from 'fumadocs-ui/layouts/notebook';
 import type { ReactNode } from 'react';
 import { baseOptions } from '../layout.config';
 import {createMetadata } from '../utils/metadata';
@@ -46,6 +46,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         tree={source.pageTree}
         {...baseOptions}
         sidebar={{
+          tabs: false,
           banner: (
             <RootToggle
               options={[

@@ -1,5 +1,5 @@
-import { source } from '@/app/source';
-import type { Metadata } from 'next';
+import { source } from '@/lib/source';
+import { createMetadata } from '@/lib/metadata';
 import {
   DocsPage,
   DocsBody,
@@ -15,7 +15,8 @@ export default async function Page({
 }: {
   params: { slug?: string[] };
 }) {
-  const page = source.getPage(params.slug);
+  const params_w = await params
+  const page = source.getPage(params_w.slug);
   if (!page) notFound();
 
   const MDX = page.data.body;
@@ -38,12 +39,13 @@ export async function generateStaticParams() {
   return source.generateParams();
 }
 
-export function generateMetadata({ params }: { params: { slug?: string[] } }) {
-  const page = source.getPage(params.slug);
+export async function generateMetadata({ params }: { params: { slug?: string[] } }) {
+  const params_w = await params
+  const page = source.getPage(params_w.slug);
   if (!page) notFound();
-
-  return {
+ 
+  return createMetadata({
     title: page.data.title,
     description: page.data.description,
-  } satisfies Metadata;
+  });
 }

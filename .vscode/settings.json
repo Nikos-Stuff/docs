@@ -1,6 +1,6 @@
 {
   "spellright.language": ["en", "pl"],
-  "spellright.documentTypes": ["markdown", "latex", "plaintext", "mdx"],
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"],
   "spellright.parserByClass": {
     "mdx": {
       "parser": "markdown"

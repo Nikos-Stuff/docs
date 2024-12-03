@@ -1,4 +1,4 @@
-import { type HomeLayoutProps } from 'fumadocs-ui/home-layout';
+import { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 
 /**
  * Shared layout configurations
@@ -9,7 +9,7 @@ import { type HomeLayoutProps } from 'fumadocs-ui/home-layout';
  */
 import React from 'react';
 
-export const baseOptions: HomeLayoutProps = {
+export const baseOptions: BaseLayoutProps = {
   nav: {
     transparentMode: 'none',
     title: (

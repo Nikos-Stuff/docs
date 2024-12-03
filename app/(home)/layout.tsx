@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { HomeLayout } from 'fumadocs-ui/home-layout';
+import { HomeLayout } from 'fumadocs-ui/layouts/home';
 import { baseOptions } from '../layout.config';
 import { I18nProvider } from 'fumadocs-ui/i18n'; // Import the I18nProvider
 import {createMetadata } from '../utils/metadata';
