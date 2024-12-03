@@ -38,6 +38,9 @@ importers:
       '@shikijs/rehype':
         specifier: ^1.24.0
         version: 1.24.0
+      '@types/hast':
+        specifier: ^3.0.4
+        version: 3.0.4
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
