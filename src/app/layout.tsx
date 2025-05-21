@@ -3,7 +3,7 @@ import { RootProvider } from 'fumadocs-ui/provider';
 import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
 import PageTransition from './PageTransition'
-import { baseUrl, createMetadata } from '@/lib/metadata';
+import { createMetadata } from '@/lib/metadata';
 
 export const metadata = createMetadata({
   title: {
