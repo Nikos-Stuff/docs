@@ -1,10 +1,13 @@
 RewriteEngine On
 RewriteBase /
 
-# Serve existing files and directories
+# Serve existing files and directories first
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Redirect all other requests to index.html
+# Serve directory index files like /main/ -> /main/index.html
+RewriteRule ^(.+[^/])$ /$1/ [R=301,L]
+
+# Fallback to index.html for everything else (SPA fallback)
 RewriteRule ^ index.html [L]
