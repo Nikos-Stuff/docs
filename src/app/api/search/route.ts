@@ -7,10 +7,10 @@ import { notFound } from 'next/navigation';
 // it should be cached forever
 export const revalidate = false;
 
-export const { staticGET: GET } = createFromSource(source);
+export const { staticGET } = createFromSource(source);
 
 
-export async function staticGET(
+export async function GET(
   _req: Request,
   { params }: { params: Promise<{ slug: string[] }> },
 ) {
