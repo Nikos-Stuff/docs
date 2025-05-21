@@ -3,31 +3,31 @@ import { createFromSource } from 'fumadocs-core/search/server';
 import { generateOGImage } from 'fumadocs-ui/og';
 import { notFound } from 'next/navigation';
 
-
-// it should be cached forever
 export const revalidate = false;
 
-export const { staticGET } = createFromSource(source);
-
+// Prepare helper functions
+const { GET: staticSearchGET } = createFromSource(source);
 
 export async function GET(
-  _req: Request,
-  { params }: { params: Promise<{ slug: string[] }> },
+  req: Request,
+  { params }: { params: { slug: string[] } },
 ) {
-  const { slug } = await params;
-  const page = source.getPage(slug.slice(0, -1));
-  if (!page) notFound();
+  const { slug } = params;
 
-  return generateOGImage({
-    title: page.data.title,
-    description: page.data.description,
-    site: "Niko's Stuff - Docs",
-  });
-}
+  const isImageRequest = slug[slug.length - 1] === 'image.png';
 
-export function generateStaticParams() {
-  return source.generateParams().map((page) => ({
-    ...page,
-    slug: [...page.slug, 'image.png'],
-  }));
+  if (isImageRequest) {
+    const pageSlug = slug.slice(0, -1);
+    const page = source.getPage(pageSlug);
+    if (!page) return notFound();
+
+    return generateOGImage({
+      title: page.data.title,
+      description: page.data.description,
+      site: "Niko's Stuff - Docs",
+    });
+  }
+
+  // Fallback to static search handler
+  return staticSearchGET(req);
 }
