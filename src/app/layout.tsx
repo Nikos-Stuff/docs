@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
 import PageTransition from './PageTransition'
 import { createMetadata } from '@/lib/metadata';
+import { Banner } from 'fumadocs-ui/components/banner';
 
 export const metadata = createMetadata({
   title: {
@@ -28,6 +29,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             },
           }}
         >
+        <Banner id="status"> <code>Work In Progress</code> </Banner>
         <PageTransition>
          {children}
         </PageTransition>

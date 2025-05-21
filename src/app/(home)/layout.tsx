@@ -12,6 +12,8 @@ export default function Layout({ children }: { children: ReactNode }) {
     <DocsLayout
       tree={source.pageTree}
       {...baseOptions}
+
+      githubUrl='https://github.com/Nikos-Stuff/docs'
       
     >
       {children}

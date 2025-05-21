@@ -7,8 +7,16 @@ export function createMetadata(override: Metadata): Metadata {
       title: override.title ?? undefined,
       description: override.description ?? undefined,
       url: 'https://nikostuff.com',
-      images: '/cheese.png',
+      images: [
+        {
+          url: '/cheese.png',
+          width: 1200,
+          height: 630,
+          alt: "Niko's Stuff Docs",
+        },
+      ],
       siteName: "Niko's Stuff Docs",
+      type: 'website',
       ...override.openGraph,
     },
     twitter: {
@@ -16,7 +24,12 @@ export function createMetadata(override: Metadata): Metadata {
       creator: '@money_is_shark',
       title: override.title ?? undefined,
       description: override.description ?? undefined,
-      images: '/cheese.png',
+      images: [
+        {
+          url: '/cheese.png',
+          alt: "Niko's Stuff Docs",
+        },
+      ],
       ...override.twitter,
     },
   };

@@ -1,0 +1,13 @@
+{
+  "title": "Niko's Stuff - Roblox",
+  "icon": "ScrollText",
+  "description": "",
+  "root": true,
+  "pages": [
+    "---Getting Started---",
+    "index",
+    "creatingaddon",
+    "---Categories---",
+    "..."
+   ]
+}

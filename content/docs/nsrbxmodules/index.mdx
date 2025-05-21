@@ -1,0 +1,45 @@
+---
+title: Installation
+description: Basic installation steps for addon.
+---
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+import { ScrollTextIcon } from 'lucide-react';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
+
+> ``addon_manager`` is a helper module that provides shortcuts and quality-of-life improvements for creating community addons for the game.
+
+---
+
+# Installation Steps
+
+<Steps>
+    <Step>
+     ### Get "Niko's Stuff - Addon Assistant" from the Toolbox.
+    </Step>
+    <Step>
+     ### Place the folder inside:
+   
+        <Files>
+            <Folder name="ServerStorage" defaultOpen>
+                <Folder name="com_lib" defaultOpen>
+                    <File name="addon_manager" icon={<ScrollTextIcon/>} />
+                </Folder>
+            </Folder>
+        </Files>
+    </Step>
+   
+   <Step>
+   ###   Create a folder:
+   
+        <Files>
+            <Folder name="ServerScriptService" defaultOpen>
+                <Folder name="community_addons" defaultOpen>
+                </Folder>
+            </Folder>
+        </Files>
+    </Step>
+
+</Steps>
+
+That's it! Your dev environment is ready.

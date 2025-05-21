@@ -2,5 +2,11 @@
   "title": "Main Docs",
   "icon": "House",
   "description": "",
-  "root": true
+  "root": true,
+   "pages": [
+    "---Introduction---",
+    "index",
+    "---Projects---",
+    "..."
+   ]
 }
