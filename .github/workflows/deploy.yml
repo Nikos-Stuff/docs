@@ -29,11 +29,11 @@ jobs:
       - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version: 'latest'
+          node-version: "latest"
           cache: "pnpm"
       - name: Install Dependencies
         run: pnpm i
-        
+
       - name: Build Next.js Website
         run: pnpm build
 
@@ -44,5 +44,5 @@ jobs:
           username: ${{ secrets.FTP_LOGIN }}
           password: ${{ secrets.FTP_PASSWD }}
           port: 21
-          local-dir: 'dist/'
+          local-dir: "out/"
           server-dir: "/"
