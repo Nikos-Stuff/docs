@@ -1,5 +1,6 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import { type LinkItemType } from 'fumadocs-ui/layouts/docs';
+import { DoorOpenIcon } from 'lucide-react';
 
 
 
@@ -35,5 +36,13 @@ export const baseOptions: BaseLayoutProps = {
     ),
   },
   // see https://fumadocs.dev/docs/ui/navigation/links
-  links: [],
+  links: [
+    {
+      icon: <DoorOpenIcon />,
+      text: 'Go Back',
+      url: 'https://nikostuff.com',
+      // secondary items will be displayed differently on navbar
+      secondary: false,
+    },
+  ],
 };
