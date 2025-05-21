@@ -5,18 +5,11 @@ const withMDX = createMDX();
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
-  
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'api.nikostuff.com',
-        port: '',
-        pathname: '/v1/img/uploads/container_ec46113a1b8b38bd89c0729ef099582b/**',
-      },
-    ],
-  },
+  output: 'export',
+  // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
+  trailingSlash: true,
+  // Optional: Prevent automatic `/me` -> `/me/`, instead preserve `href`
+  skipTrailingSlashRedirect: true,
 };
 
-// Exporting the MDX enhanced config
 export default withMDX(config);
