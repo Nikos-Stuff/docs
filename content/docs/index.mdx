@@ -6,6 +6,7 @@ full: true
 
 import { Banner } from 'fumadocs-ui/components/banner';
 import { Cards, Card } from 'fumadocs-ui/components/card';
+import { BookOpenText, Package, SquareLibrary } from 'lucide-react';
 
 
 <Banner changeLayout={false} variant='rainbow' className='z-0'>
@@ -13,22 +14,22 @@ import { Cards, Card } from 'fumadocs-ui/components/card';
 </Banner>
 <p className='text-center'>This is the central hub for all my project documentation and API references.</p>
 
-<h3>🚀 What's Next?</h3>
+<h3>What's Next?</h3>
 <p>Choose where you'd like to go:</p>
 
 <Cards>
-  <Card title="📦 Main Docs" description="General documentation, APIs, and guides." href="/main" />
-  <Card title="🎮 Roblox Addon Docs" description="Docs for custom Roblox tools, modules & addons." href="/robloxdocs" />
-  <Card title="🧪 API Reference" description="Explore legacy layout." href="https://api.nikostuff.com" />
+  <Card icon={<BookOpenText/>} title="Main Docs" description="General documentation, APIs, and guides." href="/main" />
+  <Card icon={<Package/>} title="Roblox Addon Docs" description="Docs for custom Roblox tools, modules & addons." href="/robloxdocs" />
+  <Card icon={<SquareLibrary/>} title="API Reference" description="Explore legacy layout." href="https://api.nikostuff.com" />
 </Cards>
 
 ---
 
-<h3>🛠️ Need Help?</h3>
+<h3>Need Help?</h3>
 <p>If you have any questions or need assistance, feel free to reach out via GitHub or contact me directly.</p>
 
 ---
 
-<h3>🛠️ Feedback or Suggestions?</h3>
+<h3>Feedback or Suggestions?</h3>
 <p>Found an issue or want to suggest an improvement? Feel free to reach out via GitHub or contact me directly.</p>
 
