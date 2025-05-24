@@ -1,0 +1,86 @@
+---
+title: DataStore()
+description: Store and retrieve addon data easily.
+---
+import { DatabaseZap } from 'lucide-react';
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+import { Cards, Card } from 'fumadocs-ui/components/card';
+
+Small 1MB key-value storage for your addon.  
+Use this to persist data like scores, preferences, or session logs.
+
+<Callout type="warn">Each experience has its own storage limit. Data won't be synced between two different places!</Callout>
+
+---
+
+### Method
+
+Parameters
+
+#### DataStore(``config``, ``action``, ``key``, ``value``)
+
+<TypeTable
+  type={{
+    config: {
+      description: 'Addon config table (must match the one used in CreateAddon).',
+      type: 'table',
+      default: '',
+    },
+    action: {
+      description: '"get" to retrieve data, "set" to store data.',
+      type: '"get" | "set"',
+      default: '',
+    },
+    key: {
+      description: 'Key name to identify the data.',
+      type: 'string',
+      default: '',
+    },
+    value: {
+      description: 'The value to store (only required for "set" action).',
+      type: 'any',
+      default: '',
+    },
+  }}
+/>
+
+Returns
+
+| Type   | Description                          |
+|--------|--------------------------------------|
+| `any`  | Returns the stored value if using `"get"`. |
+
+---
+
+### Required permissions
+
+<Cards>
+  <Card icon={<DatabaseZap />} title="data_store" description="Enables saving and loading persistent data via addon_manager:DataStore(...)." />
+</Cards>
+
+---
+
+### Examples
+
+```lua title="Set data"
+local my_config = {
+  name = "My Addon",
+  ver = 1.0,
+  permissions_requests = {"data_store"},
+  category = "Stats"
+}
+
+-- Save player XP under custom score table
+addon_manager:DataStore(my_config, "set", "score_table", {
+  ["NN_Nik0"] = {
+    XP = 1200,
+    Level = 5
+  }
+})
+
+-- Load player XP table
+local data = addon_manager:DataStore(my_config, "get", "score_table")
+local my_xp = data["NN_Nik0"] and data["NN_Nik0"].XP or 0
+
+print("XP:", my_xp)
+```

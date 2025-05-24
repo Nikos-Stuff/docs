@@ -1,0 +1,32 @@
+---
+title: Permissions
+description: Available permissions for your addon
+---
+import {
+  UserRoundSearch,
+  DatabaseZap,
+  ArrowLeftRight,
+  Container,
+  Hammer,
+  Sun,
+  MessageSquareText,
+  ShieldCheck,
+  Globe,
+  Camera,
+  LayoutDashboard,
+} from 'lucide-react';
+import { Cards, Card } from 'fumadocs-ui/components/card';
+
+<Cards>
+  <Card title="player_info" description="Allows editing player data (without this, access is read-only)." icon={<UserRoundSearch />} />
+  <Card title="data_store" description="Enables saving and loading persistent data via addon_manager:DataStore(...)." icon={<DatabaseZap />} />
+  <Card title="teleport" description="Grants access to teleport players using the managed teleport API." icon={<ArrowLeftRight />} />
+  <Card title="skip_virtualenv" description="Disables the requirement to use managed/sandboxed functions (e.g., direct execution access)." icon={<Container />} />
+  <Card title="workspace_access" description="Grants permission to create or modify objects in workspace. Without it, access is read-only." icon={<Hammer />} />
+  <Card title="lighting_edit" description="Allows changes to Lighting service (e.g., time of day, fog, ambient)." icon={<Sun />} />
+  <Card title="chat_send" description="Enables sending messages to chat on behalf of the addon." icon={<MessageSquareText />} />
+  <Card title="admin_only" description="Restricts execution to players with admin/dev permissions." icon={<ShieldCheck />} />
+  <Card title="http_requests" description="Allows limited usage of HttpService if enabled globally (use with caution!)." icon={<Globe />} />
+  <Card title="camera_control" description="Grants permission to manipulate player cameras (e.g., cutscenes, zoom effects)." icon={<Camera />} />
+  <Card title="ui_edit" description="Allows creation/modification of player GUIs using managed UI functions." icon={<LayoutDashboard />} />
+</Cards>

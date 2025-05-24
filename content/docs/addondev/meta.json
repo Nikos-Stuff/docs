@@ -1,13 +1,14 @@
 {
-  "title": "Niko's Stuff - Roblox",
+  "title": "Addon Development",
   "icon": "ScrollText",
   "description": "",
   "root": true,
   "pages": [
     "---Getting Started---",
     "index",
+    "permissions",
     "creatingaddon",
-    "---Categories---",
+    "---References---",
     "..."
    ]
 }

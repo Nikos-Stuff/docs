@@ -1,0 +1,78 @@
+---
+title: Teleport()
+description: Rapidly move players or objects to a new location.
+---
+import { ArrowLeftRight } from 'lucide-react';
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+Quickly move a player or instance to another position or CFrame using managed teleportation.
+
+<Callout type="info">
+This method bypasses physics and smoothly moves objects to a new destination. For player objects, this will also handle network ownership.
+</Callout>
+
+---
+
+### Method
+
+Parameters
+
+#### Teleport(``target``, ``destination``)
+
+<TypeTable
+  type={{
+    target: {
+      description: 'The object or player to teleport. Must be a valid Instance.',
+      type: 'instance',
+      default: '',
+    },
+    destination: {
+      description: 'The position to teleport to. Can be a `Vector3`, `CFrame`, or another `Instance`.',
+      type: 'cframe | vector3 | instance',
+      default: '',
+    },
+  }}
+/>
+
+Returns
+
+| Type   | Description                          |
+|--------|--------------------------------------|
+| `nil`  | No return value. Executes teleport logic immediately. |
+
+---
+
+### Required permissions
+
+<Cards>
+  <Card icon={<ArrowLeftRight />} title="teleport" description="Grants access to teleport players using the managed teleport API." />
+</Cards>
+
+---
+
+### Examples
+
+```lua title="Teleport a player to a part"
+local player_char = player.Character
+local target_part = workspace:FindFirstChild("SpawnLocation")
+
+if player_char and target_part then
+  addon_manager:Teleport(player_char, target_part)
+end
+
+-- Example on a part
+local part = workspace:FindFirstChild("Cube")
+
+if part then
+  addon_manager:Teleport(part, CFrame.new(0, 10, 0))
+end
+
+-- Example on a NPC
+local enemy = workspace:FindFirstChild("EnemyNPC")
+
+if enemy then
+  addon_manager:Teleport(enemy, Vector3.new(100, 20, -50))
+end
+```

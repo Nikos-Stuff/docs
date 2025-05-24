@@ -1,0 +1,75 @@
+---
+title: GetPlayerData()
+description: Get detailed player data information
+---
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+import { UserRoundSearch } from 'lucide-react';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+import { Cards, Card } from 'fumadocs-ui/components/card';
+
+Easily get player data from any of our game.
+
+<Callout type="warn">Data in this fuction is dynamic! Can be diffrent per experience</Callout>
+
+---
+
+### Method
+
+#### GetPlayerData(``target``)
+
+Parameters
+<TypeTable
+  type={{
+    target: {
+      description:
+        'The player object to get data from.',
+      type: 'instance | string',
+      default: '',
+    },
+  }}
+/>
+
+
+Returns
+
+| Type | Description |
+| ---- | ---- |
+| `table` | A table containing the player data. |
+
+---
+
+### Required permissions
+
+<Cards>
+  <Card icon={<UserRoundSearch/>} title="player_info" description="Allows editing player data (without this, access is read-only)." />
+</Cards>
+
+---
+
+### Examples
+
+```lua title="My Example"
+local addon_manager = require(game.ServerStorage.com_lib:WaitForChild("AddonManager"))
+
+local player_data = addon_manager:GetPlayerData(player)
+
+```
+
+#### Example return
+
+```lua
+{
+    Name = "PlayerName",
+    UserId = 123456789,
+    DisplayName = "PlayerDisplayName",
+    AccountAge = 100,
+    Values = {
+        ["PlayerValue1"] = 10,
+        ["PlayerValue2"] = 20,
+    }
+}
+```
+
+
+

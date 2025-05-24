@@ -75,27 +75,6 @@ import { Step, Steps } from 'fumadocs-ui/components/steps';
   }
 }
 ```
-
----
-
-## Permission System
-
-Each addon must request permissions to access features like player data or datastore.
-
-| Permission       | Description                                                                                       |
-|----------------------|-------------------------------------------------------------------------------------------------------|
-| player_info        | Allows editing player data (without this, access is read-only).                                   |
-| data_store         | Enables saving and loading persistent data via addon_manager:DataStore(...).                        |
-| teleport           | Grants access to teleport players using the managed teleport API.                                     |
-| skip_virtualenv    | Disables the requirement to use managed/sandboxed functions (e.g., direct execution access).   |
-| workspace_access   | Grants permission to create or modify objects in workspace. Without it, access is read-only.        |
-| lighting_edit      | Allows changes to Lighting service (e.g., time of day, fog, ambient).                               |
-| chat_send          | Enables sending messages to chat on behalf of the addon.                                              |
-| admin_only         | Restricts execution to players with admin/dev permissions.                                            |
-| http_requests      | Allows limited usage of HttpService if enabled globally (use with caution!).                        |
-| camera_control     | Grants permission to manipulate player cameras (e.g., cutscenes, zoom effects).                       |
-| ui_edit            | Allows creation/modification of player GUIs using managed UI functions.                               |
-
 ---
 ### Tips for Beginners
 
