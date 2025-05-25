@@ -1,0 +1,68 @@
+---
+title: CreateAddon()
+description: Helper function to register your addon.
+---
+import { ShieldMinus } from 'lucide-react';
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+import { Cards, Card } from 'fumadocs-ui/components/card';
+
+Load your addont to our AddonManager to register it and make it available to players.
+
+---
+
+### Method
+
+#### CreateAddon(``config``, ``start_function``)
+
+Parameters
+<TypeTable
+  type={{
+    config: {
+      description: 'Addon config table.',
+      type: 'table',
+      default: '',
+    },
+    start_function: {
+      description: 'Function to call when the addon is loaded.',
+      type: 'function',
+      default: '',
+    },
+  }}
+/>
+
+
+---
+
+### Required permissions
+
+<Cards>
+  <Card icon={<ShieldMinus />} title="None" description="No permissions required." />
+</Cards>
+
+---
+
+### Examples
+
+```lua title="Create a simple addon"
+local addon_manager = require(game:GetService("ReplicatedStorage").AddonManager)
+local addon_config = {
+  name = "MyAddon",
+  description = "A simple addon example.",
+  version = "1.0.0",
+}
+
+
+addon_manager:CreateAddon(addon_config, function()
+  print("MyAddon has been loaded!")
+end)
+
+-- Or just
+
+
+function myFunction()
+  print("MyAddon has been loaded!")
+end
+
+addon_manager:CreateAddon(addon_config, myFunction())
+
+```
