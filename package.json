@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "framer-motion": "^12.12.1",
-    "fumadocs-core": "15.4.2",
+    "fumadocs-core": "15.5.0",
     "fumadocs-mdx": "11.6.6",
     "fumadocs-ui": "15.5.0",
     "lucide-react": "^0.511.0",
