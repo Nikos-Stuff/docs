@@ -37,12 +37,12 @@ jobs:
       - name: Build Next.js Website
         run: pnpm build
 
-      - name: SFTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Sync
+        uses: burnett01/rsync-deployments@7.0.2
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_LOGIN }}
-          password: ${{ secrets.FTP_PASSWD }}
-          port: 21
-          local-dir: "out/"
-          server-dir: "/"
+          switches: -avzr --delete --progress
+          path: out/
+          remote_path: /web/pages/docs.nikostuff.com
+          remote_host: ${{ secrets.FTP_HOST }}
+          remote_user: ${{ secrets.FTP_LOGIN }}
+          remote_key: ${{ secrets.FTP_KEY }}
