@@ -1,22 +1,6 @@
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
-import type { ReactNode } from 'react';
-import { baseOptions } from '@/app/layout.config';
-import { source } from '@/lib/source';
+import { HomeLayout } from 'fumadocs-ui/layouts/home';
+import { baseOptions } from '@/lib/layout.shared';
 
-
-
-
-
-export default function Layout({ children }: { children: ReactNode }) {
-  return (
-    <DocsLayout
-      tree={source.pageTree}
-      {...baseOptions}
-
-      githubUrl='https://github.com/Nikos-Stuff/docs'
-      
-    >
-      {children}
-    </DocsLayout>
-  );
+export default function Layout({ children }: LayoutProps<'/'>) {
+  return <HomeLayout {...baseOptions()}>{children}</HomeLayout>;
 }
