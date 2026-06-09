@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "target": "ESNext",
     "lib": [
       "dom",
@@ -20,11 +19,12 @@
     "jsx": "react-jsx",
     "incremental": true,
     "paths": {
+      // 2. Prefix your path paths with a dot if they are relative to the root
       "@/*": [
         "./src/*"
       ],
       "@/.source": [
-        ".source"
+        "./.source" // Added the ./ here for strict relative resolution
       ]
     },
     "plugins": [
