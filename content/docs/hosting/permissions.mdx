@@ -1,0 +1,91 @@
+---
+title: Managing Ranks & Permissions
+description: Learn how to set up server groups, prefixes, and command permissions using LuckPerms.
+---
+
+import { Callout } from "fumadocs-ui/components/callout";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+
+# Managing Server Permissions
+
+By default, Minecraft only offers a basic operator (`/op`) system—which grants complete, unrestricted control over your server. To build a secure community, you need a robust permission management plugin to restrict access to commands like `/fly`, `/home`, or special mod features.
+
+We highly recommend using **LuckPerms**, as it includes a powerful web interface that eliminates the need to configure messy raw configuration files manually.
+
+---
+
+## 1. Initial Setup via the Web Editor
+
+<Steps>
+  <Step title="Generate an Editor Link">
+    Log into your server console via the **Pelican Panel** or type directly in-game if you are an OP:
+```text
+    /lp editor
+    ```
+    The plugin will compile your current server profiles and output a secure, clickable URL.
+  </Step>
+
+<Step title="Configure Your Groups">
+  Open the link in your web browser. You will see a modern panel split into
+  **Groups** and **Users**. * By default, everyone joins the **`default`**
+  group. * Click the `+` icon next to Groups to create new tiers (e.g.,
+  `moderator`, `admin`, `vip`).
+</Step>
+
+  <Step title="Add Permission Nodes">
+    Select a group to view its permission matrix. At the bottom, you can add individual **permission nodes** (the internal identifier strings that plugins use to authorize commands) and set their values to `true`.
+  </Step>
+</Steps>
+
+---
+
+## 2. Common Permission Node Reference
+
+To save you some searching, here are the exact foundational permission strings you should apply to your **`default`** group so standard players can access basic server mechanics:
+
+### EssentialsX Commands (If Installed)
+
+| Action / Command                                 | Permission Node                          |
+| :----------------------------------------------- | :--------------------------------------- |
+| Use basic teleports (`/tpa`, `/tpaccept`)        | `essentials.tpa`                         |
+| Set individual checkpoints (`/sethome`, `/home`) | `essentials.sethome` & `essentials.home` |
+| Return to spawn area (`/spawn`)                  | `essentials.spawn`                       |
+| Use public text warps (`/warp [name]`)           | `essentials.warps.[name]`                |
+
+### Simple Voice Chat Nodes
+
+If you followed our [Simple Voice Chat Setup Guide](/hosting/voicechat-setup), players automatically have access to common speaking functions. However, if you want to grant specific recording or grouping powers, apply these:
+
+- **`voicechat.group`** — Allows players to create and password-protect isolated voice rooms/parties.
+- **`voicechat.priority`** — Grants a staff member "Priority Speaker" status (mutes or drops standard audio levels for others when they talk).
+
+---
+
+## 3. Saving Your Modifications
+
+Once you are done modifying your group keys in the web matrix:
+
+<Steps>
+  <Step title="Click Save">
+    Look at the top right corner of the web editor and click the **Save**
+    button.
+  </Step>
+  <Step title="Execute the Sync Code">
+    The application will generate a special command string (for example, `/lp
+    applyedits a1b2c3d4`). Copy this text entirely.
+  </Step>
+  <Step title="Apply to Pelican Console">
+    Paste that command string directly into your **Pelican Panel Console** (omit
+    the initial slash `/` if pasting directly into the panel terminal log) and
+    press Enter. ```text lp applyedits a1b2c3d4 ``` Your node network will
+    immediately fetch the updates from the web workspace and apply them live—no
+    server restarts required!
+  </Step>
+</Steps>
+
+<Callout type="info" title="Inheritance Tip">
+  To save time, use the **Inheritance** feature inside the group editor page.
+  You can make your `moderator` group inherit the `default` group. This means
+  mods automatically get all player commands, saving you from copy-pasting
+  standard nodes over and over again.
+</Callout>

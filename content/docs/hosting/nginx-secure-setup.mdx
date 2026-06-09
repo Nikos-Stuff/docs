@@ -1,0 +1,109 @@
+---
+title: Secure Web Setup with Nginx
+description: Learn how to host web applications securely on your node using Cloudflare Tunnels or your own custom domain.
+---
+
+import { Callout } from "fumadocs-ui/components/callout";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Tabs, Tab } from "fumadocs-ui/components/tabs";
+
+# Nginx & Web Application Security
+
+If you are running a web server (like a standard Nginx landing page, a Dynmap/BlueMap instance, or a custom panel extension), the default setup where your application listens on a public port is perfectly fine for **developing, prototyping, or quick testing**.
+
+However, if you are launching a production project or want to maximize your security, leaving public ports open to the raw internet exposes your instance to port-scanners, brute-force attempts, and targeted DDoS attacks.
+
+---
+
+## Choose Your Configuration Method
+
+Depending on whether you want automated security layers or full manual control over your DNS routing, choose one of the following setups:
+
+<Tabs items={['Method A: Cloudflare Tunnel (Highly Recommended)', 'Method B: Manual Custom Domain Setup']}>
+  
+  <Tab value="Method A: Cloudflare Tunnel (Highly Recommended)">
+    ### Secure Architecture via Cloudflare Tunnels
+    
+    Instead of opening a public port on the node's external IP address, a tunnel allows your application to bind locally to the server's loopback address (`127.0.0.1`). The tunnel creates a secure, outbound-only encrypted connection directly to Cloudflare's network, mapping your domain name seamlessly without exposing your underlying server port or raw node IP.
+
+    <Callout type="info" title="Why choose Method A?">
+      **It is Migration-Proof:** Because the tunnel connects *outbound* from inside your server container, your domain will survive backend node migrations completely uninterrupted. If we ever scale our hardware or move your instance to a different server node, your website will stay online with zero DNS changes required on your end!
+    </Callout>
+
+    <Steps>
+      <Step title="Open a Support Ticket">
+        Because network interface mappings are tightly controlled by the host daemon, you need our team to allocate an isolated backend endpoint for your container.
+
+        * Create a ticket in our support system.
+        * Let us know you want to lock down your web application to a local loopback binding.
+      </Step>
+
+      <Step title="We Assign a Loopback Endpoint">
+        Our team will adjust your server allocation matrix to convert your open port into an isolated local assignment pointing to `127.0.0.1`. This instantly drops all external traffic attempting to hit that port directly from the internet.
+      </Step>
+
+      <Step title="Configure Your Cloudflare Token">
+        1. Log into your **Pelican Control Panel**.
+        2. Click into your server and navigate to the **Startup** section in the sidebar.
+        3. Look for the environment variables labeled **Cloudflare Tunnel Token**.
+        4. Paste your Cloudflare Zero Trust tunnel token here.
+      </Step>
+
+      <Step title="Boot and Confirm">
+        Default nginx configuration should work without any adjustments.
+        Restart your server from the console dashboard. Your application will route cleanly through the Cloudflare edge—giving you automated SSL certificates, clean port-free URLs, and additional DDoS protection without any extra configuration.
+      </Step>
+    </Steps>
+
+  </Tab>
+
+  <Tab value="Method B: Manual Custom Domain Setup">
+    ### Manual DNS Configuration
+    
+    If you prefer to bypass Cloudflare Tunnels and handle your own domain mapping (for example, managing your own Reverse Proxy, SSL generation, or raw A/CNAME records), you can point your domain directly to the physical node hosting your server container.
+
+    <Steps>
+      <Step title="Find Your Node Address">
+        First, you need to identify the exact public hostname of the node your server is running on.
+
+        1. Log into your **Pelican Control Panel** and open your server.
+        2. Navigate to the **Settings** tab in the sidebar.
+        3. Look for the **Node Name** field. It will show a designation like `EU #0`.
+
+        Our nodes resolve to clean network hostnames using the following pattern:
+        * `EU #0` --> **`eunode0.nikostuff.com`**
+        * `EU #1` --> **`eunode1.nikostuff.com`**
+      </Step>
+
+      <Step title="Note Your Port Number">
+        Look at your server's primary allocation on the console dashboard or the **Network** tab. You will need your assigned web port number (e.g., `8080`).
+      </Step>
+
+      <Step title="Configure Your Domain DNS">
+        Go to your domain registrar (Namecheap, Cloudflare, GoDaddy, etc.) and open your DNS Zone Editor. Create a record to forward traffic to the node:
+
+        * **Type:** `CNAME`
+        * **Name/Host:** `docs` or `web` (or `@` if using the root domain)
+        * **Target/Value:** `eunode0.nikostuff.com` (Match this to your actual Node Name from Step 1)
+        * **TTL:** `Auto` or `3600`
+
+        *(Alternatively, if your registrar requires a raw IP, you can use an `A Record` pointing directly to the IP address listed under your server's Network allocation block).*
+      </Step>
+
+      <Step title="Access Your Application">
+        Once DNS records propagate, you will be able to access your web application using your custom domain alongside your assigned port:
+
+        ```text
+        [http://yourdomain.com:8080](http://yourdomain.com:8080)
+        ```
+
+        *(Note: If your domain uses Cloudflare, you can "cheese" this requirement and hide the port number in your URL bar entirely by utilizing Cloudflare **Origin Rules** to rewrite standard port 443 inbound requests down to your assigned custom container port).*
+      </Step>
+    </Steps>
+
+    <Callout type="warn" title="Port Requirement">
+      Because this is a shared hosting node, you cannot use standard ports `80` or `443` for manual domain mapping. Your users **must** append your assigned port number at the end of your custom domain to connect successfully unless utilizing external reverse proxy rules.
+    </Callout>
+
+  </Tab>
+</Tabs>

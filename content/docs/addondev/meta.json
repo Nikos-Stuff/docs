@@ -1,7 +1,7 @@
 {
   "title": "Addon Development",
   "icon": "ScrollText",
-  "description": "",
+  "description": "Quick guides about our Roblox Module.",
   "root": true,
   "pages": [
     "---Getting Started---",

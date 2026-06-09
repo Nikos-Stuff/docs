@@ -1,0 +1,83 @@
+---
+title: Simple Voice Chat Setup
+description: Learn how to install and properly configure the Simple Voice Chat mod or plugin on your game server.
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { CodeBlock, Pre } from 'fumadocs-ui/components/codeblock';
+
+# Setting up Simple Voice Chat
+
+The **Simple Voice Chat** mod (by henkelmax) adds proximity-based audio directly into Minecraft. Because voice data uses heavy, real-time audio packages, it operates on a completely separate network socket using **UDP** instead of Minecraft's standard TCP protocol.
+
+This guide will walk you through allocating a port on Pelican Panel and mapping it perfectly inside your configuration files.
+
+---
+
+## Prerequisites
+
+Before starting, make sure you have installed the matching version of the Voice Chat mod/plugin:
+* **Server-side:** Running Paper, Purpur, or Fabric with the plugin/mod dropped into your `plugins` or `mods` folder via SFTP.
+* **Client-side:** Every player joining the server **must** have the mod installed locally in their own Minecraft instances along with a dependency like Fabric API or Forge.
+
+---
+
+## Step-by-Step Configuration
+
+<Steps>
+  <Step title="Allocate an Additional Port">
+    Because Minecraft traffic runs on its own thread, Voice Chat needs its own channel.
+    
+    1. Navigate to your server dashboard on the **Pelican Panel**.
+    2. Click on the **Network** tab in the sidebar.
+    3. Look for an available extra port, or click **Add Allocation** to generate a new secondary port (for example, `24454`).
+    4. **Crucial:** Note this port down. It must be different from your primary Minecraft connection port (which is usually `25565`).
+  </Step>
+
+  <Step title="Generate the Config File">
+    1. Start your server once with the plugin installed so it can generate its default folders.
+    2. Once the console reads that the server is online, click **Stop**.
+    3. Navigate to the **File Manager** (or connect via SFTP).
+    4. Go to the path: `plugins/voicechat/voicechat-server.properties` (or `config/voicechat/voicechat-server.properties` if you are using Fabric/Forge).
+  </Step>
+
+  <Step title="Edit the Network Bindings">
+    Open the configuration file using the built-in file editor. You need to adjust two specific lines to match how Pelican routes internal container traffic:
+
+    ```properties
+    # The port the voice chat server should run on.
+    # Change this to the exact secondary port you allocated in Step 1!
+    port=24454
+
+    # The IP address the voice chat server should bind to.
+    # For Docker-based panels like Pelican, keep this as 0.0.0.0
+    bind_address=0.0.0.0
+    ```
+    
+    * **`bind_address`:** Must remain `0.0.0.0` so it listens across all internal network cards managed by the daemon node.
+    * **`port`:** Change this from the default `24454` to your specific allocated secondary port if your node assigned you a different number.
+  </Step>
+
+  <Step title="Boot and Verify">
+    Save the file changes and navigate back to your server console. Click **Start**.
+    
+    Watch the terminal logs closely during startup. You should see a line confirming successful binding:
+    
+    ```text
+    [Voice Chat Server Thread/INFO]: Server started on port 24454
+    ```
+  </Step>
+</Steps>
+
+---
+
+## Troubleshooting Common Errors
+
+### Connection Icon is Red / "Plugin not installed"
+If players connect to the Minecraft server but see a broken red plug icon next to their names, it means their game client cannot establish a UDP connection with the server.
+
+<Callout type="error" title="Check Firewalls and Network Type">
+  * **UDP vs TCP:** Regular Minecraft traffic uses TCP, but voice streams require UDP. If you are behind a proxy like Cloudflare, note that basic Cloudflare tunnels do not forward raw UDP packets to game servers without advanced routing.
+  * **Port Matching:** Double-check that the port number listed in your server's `Network` settings matches *exactly* with the number typed into `voicechat-server.properties`.
+</Callout>

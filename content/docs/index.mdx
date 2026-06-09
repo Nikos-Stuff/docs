@@ -6,7 +6,7 @@ full: true
 
 import { Banner } from 'fumadocs-ui/components/banner';
 import { Cards, Card } from 'fumadocs-ui/components/card';
-import { BookOpenText, Package, SquareLibrary } from 'lucide-react';
+import { Package, ServerIcon } from 'lucide-react';
 
 
 <Banner changeLayout={false} variant='rainbow' className='z-0'>
@@ -18,9 +18,8 @@ import { BookOpenText, Package, SquareLibrary } from 'lucide-react';
 <p>Choose where you'd like to go:</p>
 
 <Cards>
-  <Card icon={<BookOpenText/>} title="Main Docs" description="General documentation, APIs, and guides." href="/main" />
   <Card icon={<Package/>} title="Roblox Addon Docs" description="Docs for custom Roblox tools, modules & addons." href="/addondev" />
-  <Card icon={<SquareLibrary/>} title="Hosting Docs" description="General guides for hosting.nikostuff.com." href="/hosting" />
+  <Card icon={<ServerIcon/>} title="Hosting Docs" description="General guides for hosting.nikostuff.com." href="/hosting" />
 </Cards>
 
 ---

@@ -1,0 +1,62 @@
+---
+title: Handling Server Crashes
+description: A general troubleshooting guide for diagnosing and resolving sudden server shutdowns or boot loops.
+---
+
+import { Callout } from "fumadocs-ui/components/callout";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+
+# Troubleshooting Server Crashes
+
+It can be incredibly frustrating when a server suddenly terminates or gets stuck in a continuous boot loop. Whether you are running a modified Minecraft instance, hosting a custom Nginx webpage, or running a tailored Discord bot script, crashes usually stem from a few common infrastructure or software bottlenecks.
+
+This guide will walk you through reading your container logs and identifying the root cause of an instability.
+
+---
+
+## Step-by-Step Crash Diagnostic
+
+Before changing any files, follow these structural steps to see exactly what triggered the shutdown.
+
+<Steps>
+  <Step title="Check the Real-Time Console Logs">
+    When a server crashes, the absolute best clues are left at the very bottom of your terminal stream right before the instance closed.
+    
+    1. Log into your **Pelican Control Panel**.
+    2. Click into the problematic server and view the **Console** tab.
+    3. Look for phrases indicating severe failures, such as:
+       * `FATAL`, `CRITICAL`, or `ERROR`
+       * `Out of Memory` / `Killed`
+       * `Exception in thread...`
+  </Step>
+
+  <Step title="Inspect Dedicated Log Files via SFTP">
+    Sometimes consoles clear out on a crash restart, wiping historical outputs. Connect via [SFTP](/hosting/connecting-sftp) or open the web File Manager to look for persistent logs:
+    * **Game Servers (Minecraft):** Look inside the `logs/latest.log` file, or check for generated files inside a `crash-reports/` folder.
+    * **Web/Script Containers:** Look for files named `error.log`, `combined.log`, or framework-specific output dumps in your root directory.
+  </Step>
+
+  <Step title="Analyze Common Crash Triggers">
+    Most shared instance crashes fall into one of three buckets:
+    
+    * **Resource Starvation (OOM):** If your log simply ends with the word `Killed` or mentions `Java heap space`, your application tried to pull more RAM than your active Pelican plan allows. 
+    * **Missing Dependencies:** A script crashed because a required software extension, database binding, or environment module wasn't installed or uploaded.
+    * **Port Conflicts:** If you see `BindException: Address already in use`, your script is trying to launch on a port number that belongs to another server container. Make sure your configurations point exactly to your assigned network allocations.
+  </Step>
+</Steps>
+
+---
+
+## Get Quick Remote Help!
+
+We understand that digging through thousands of lines of terminal outputs or debugging complex backtraces isn't for everyone. If your server is completely stuck and you want a fast resolution, our staff team is standing by to jump in and help you directly.
+
+<Callout type="warn" title="Let Us Fix It For You">
+  You don't have to troubleshoot blind! If your server keeps crashing, simply **open a support ticket** in our panel or jump into our Discord server!
+  
+  Our system administrators can securely access your container console remotely, look over your error flags, and help fix your configuration files or file paths to get you right back online safely.
+</Callout>
+
+When opening a ticket, helping us with these details will speed up your support time significantly:
+1. What changes did you make right before the crash occurred (e.g., adding a plugin, updating code, shifting properties)?
+2. A quick copy-paste of the final 20 lines of your console log.

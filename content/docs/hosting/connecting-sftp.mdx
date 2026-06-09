@@ -1,0 +1,99 @@
+---
+title: Connecting to SFTP
+description: Learn how to manage your game server files using absolute speed via a third-party SFTP client.
+---
+
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+
+# File Management via SFTP
+
+While the Pelican Panel web file manager is perfect for minor text edits, uploading heavy folders (like large Minecraft world maps, mods, or extensive plugin directories) is much more reliable using an **SFTP (SSH File Transfer Protocol)** client.
+
+<Callout type="warn" title="Standard FTP is Blocked">
+  Our server infrastructure exclusively allows **SFTP** connections. Standard unencrypted FTP (port 21) will be instantly blocked by the node firewall.
+</Callout>
+
+---
+
+## Finding Your Credentials
+
+Every single game server has unique SFTP connection values assigned by Pelican. 
+
+<Steps>
+  <Step title="Navigate to Settings">
+    Log into the control panel, click into your specific game server, and select the **Settings** tab in the sidebar layout.
+  </Step>
+  <Step title="Locate SFTP Block">
+    Find the card labeled **SFTP Details**. You will see:
+    * **Server Address:** The connection endpoint (e.g., `sftp.nikostuff.com` or an IP address).
+    * **Port:** Pelican nodes default to port `2022` (instead of standard SSH port 22).
+    * **Username:** A string formatted specifically as `username.serverid` (e.g., `niko.a1b2c3d4`).
+  </Step>
+  <Step title="Identify Password">
+    Your SFTP password is the **exact same password** you use to log into your account dashboard at `panel.nikostuff.com`.
+  </Step>
+</Steps>
+
+---
+
+## Connection Guide
+
+We recommend using free, highly optimized clients like **FileZilla** or **WinSCP** to connect.
+
+<Tabs items={['FileZilla', 'WinSCP']}>
+  <Tab value="FileZilla">
+    ### Connecting with FileZilla
+    
+    1. Open FileZilla on your computer.
+    2. Navigate to **File > Site Manager** (do not use the Quickconnect bar, as it can drop ports).
+    3. Click **New Site** and configure the following parameters:
+       * **Protocol:** `SFTP - SSH File Transfer Protocol`
+       * **Host:** Enter your *Server Address* from the panel.
+       * **Port:** `2022`
+       * **Logon Type:** `Normal`
+       * **User:** Enter your special `username.serverid` string.
+       * **Password:** Your Pelican Panel account password.
+    4. Click **Connect**. If a prompt pops up asking about an "Unknown Host Key", check the box to trust it and click OK.
+  </Tab>
+  <Tab value="WinSCP">
+    ### Connecting with WinSCP
+    
+    1. Launch WinSCP.
+    2. In the Login Dialog window, set up a new connection:
+       * **File protocol:** `SFTP`
+       * **Host name:** Enter your *Server Address*.
+       * **Port number:** `2022`
+       * **User name:** Your unique `username.serverid`.
+       * **Password:** Your Pelican Panel account password.
+    3. Click **Save** for quick access later, then click **Login**.
+    4. Accept the Host Key popup window to confirm the secure connection.
+  </Tab>
+</Tabs>
+
+---
+
+## Directory Structure Reference
+
+Once connected, you will drop right into your server root directory. Here is what you will typically find for a standard Minecraft deployment:
+
+<Files>
+  <Folder name="root" defaultOpen>
+    <Folder name="plugins">
+      <File name="LuckPerms.jar" />
+      <File name="SimpleVoiceChat.jar" />
+    </Folder>
+    <Folder name="world">
+      <File name="level.dat" />
+    </Folder>
+    <File name="server.properties" />
+    <File name="spigot.yml" />
+    <File name="usercache.json" />
+  </Folder>
+</Files>
+
+<Callout type="info" title="File Permissions Notice">
+  Files uploaded via SFTP are automatically assigned safe `644` file permissions and are owned securely by the internal container layer. You do not need to run manual `chmod` commands on your scripts.
+</Callout>

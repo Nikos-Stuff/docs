@@ -1,0 +1,22 @@
+{
+  "title": "Hosting",
+  "icon": "Album",
+  "description": "Guides for managing and configuring game servers.",
+  "root": true,
+  "pages": [
+    "---Getting Started---",
+    "index",
+    "connecting-sftp",
+    
+    "---Minecraft Configurations---",
+    "voicechat-setup",
+    "permissions",
+    
+    "---Other Configurations---",
+    "nginx-secure-setup",
+
+    
+    "---Troubleshooting---",
+    "server-crashes"
+  ]
+}
