@@ -1,0 +1,69 @@
+---
+title: Configuring your NFC Tag
+description: Learn how to format your NFC tags and write custom URLs or records using NFC Tools.
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuring your NFC Tag
+
+Every custom keychain ordered from us comes pre-equipped with an embedded NFC tag. This guide will walk you through the process of overwriting the default settings to point the tag toward your own websites, social media profiles, or custom actions.
+
+## Prerequisites
+
+Before you begin, ensure you have the following:
+
+*   An **NFC-enabled smartphone** (Android or iOS).
+*   The **[NFC Tools](https://play.google.com/store/apps/details?id=com.wakdev.wdnfc)** app installed from the Google Play Store or Apple App Store.
+
+---
+
+## Step-by-Step Configuration
+
+Follow these steps to clear your tag and write new data to it.
+
+<Steps>
+  <Step title="Prepare your Keychain">
+    Ensure your phone is unlocked and the NFC feature is toggled **ON** in your system settings. Hold the back of your phone near the center of the keychain where the tag is embedded.
+  </Step>
+
+  <Step title="Erase Existing Data">
+    Open **NFC Tools** and navigate to the **"Other"** tab. Select **"Erase tag"**. Hold your phone against the keychain until the app confirms the tag has been wiped successfully.
+  </Step>
+
+  <Step title="Create your New Record">
+    Navigate to the **"Write"** tab in the app. Click **"Add a record"**. 
+    * To link a website: Choose **"URL / URI"** and enter your desired link (e.g., `https://your-site.com`).
+    * Click **"OK"**.
+  </Step>
+
+  <Step title="Write to the Tag">
+    Once your record is added, tap the **"Write / XX Bytes"** button. Hold your phone firmly against the keychain. The app will notify you once the write process is complete.
+  </Step>
+</Steps>
+
+---
+
+## Pro-Tips
+
+<Callout type="tip" title="Do NOT Lock Your Tag">
+  Be careful with the "Lock" feature in NFC Tools. Once you lock a tag, it cannot be rewritten. **Do not lock your tag** if you think you might want to change the URL in the future.
+</Callout>
+
+*   **Test Before Finalizing:** Before attaching your keychain to your keys, test the scan functionality. Some NFC antennas are located in specific corners of a phone, so you may need to move it slightly to find the "sweet spot."
+*   **Verification:** After writing, simply bring your phone near the tag without the app open. Your phone should automatically prompt you to open the link you just saved.
+
+---
+
+## Troubleshooting
+
+If your phone isn't detecting the tag:
+1.  **Check your position:** Try sliding the phone slowly over the keychain; sometimes the antenna is in a specific corner of the device.
+2.  **Remove heavy cases:** If you have a very thick, rugged phone case, it may block the NFC signal.
+3.  **Check for metal:** Ensure the keychain is not resting on a metal surface, as metal can interfere with NFC communication.
+
+---
+
+**Need more help?** 
+If you still cannot get the tag to work, please [join our Discord](https://dc.nikostuff.com) and reach out in the help channel!

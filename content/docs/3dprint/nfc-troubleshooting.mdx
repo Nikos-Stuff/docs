@@ -1,0 +1,44 @@
+---
+title: NFC Troubleshooting
+description: Common solutions if your keychain is not scanning or writing correctly.
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# NFC Troubleshooting
+
+Most issues with NFC keychains are related to phone positioning or environmental interference. Follow these steps to resolve common problems.
+
+## Common Issues
+
+### The tag isn't being detected
+*   **Locate the Antenna:** Most phones have the NFC antenna near the camera module. You may need to slide your phone slowly over the keychain to find the exact "sweet spot."
+*   **Remove Interference:** Ensure your keychain is not resting on a metal surface or inside a metal desk, as metal blocks NFC signals.
+*   **Phone Case Thickness:** If you have a thick, rugged, or battery-extended case, try removing it to see if the signal improves.
+
+### "Write failed" or "Tag busy" errors
+*   **Steady Pressure:** If the write process fails, you likely moved the keychain during the transfer. Keep the phone and keychain held firmly against each other until the app says "Write Successful."
+*   **Erase First:** If the tag already contains data, it is sometimes cleaner to perform an **"Erase tag"** command before attempting to write a new, large record.
+
+---
+
+## Important Warnings
+
+<Callout type="warn" title="Do NOT Lock Your Tag">
+  In the **NFC Tools** app, you may see an option to "Lock" the tag. 
+  **Do not do this.** 
+  Once a tag is locked, it becomes read-only forever and can never be updated or erased again. There is no way to undo this.
+</Callout>
+
+<Callout type="info" title="Tag Storage Capacity">
+  These NFC tags have a limited memory capacity (typically 500 bytes). If you are trying to write a very long URL, the app will warn you if it exceeds the limit. Use a [URL shortener](https://bitly.com) if your link is too long.
+</Callout>
+
+---
+
+## Still having trouble?
+
+If you have tried the steps above and still cannot get your keychain to scan, feel free to reach out for further assistance.
+
+*   **Community Discord:** [Join the server](https://dc.nikostuff.com)
+*   **Support:** Open a ticket in the `#support` channel.

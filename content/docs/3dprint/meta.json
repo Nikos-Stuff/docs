@@ -1,0 +1,17 @@
+{
+  "title": "3D Printing",
+  "icon": "Printer",
+  "description": "Guides for managing 3D prints, NFC tag configurations.",
+  "root": true,
+  "pages": [
+    "---Getting Started---",
+    "index",
+    
+    "---NFC Tag Guides---",
+    "nfc",
+    "nfc-troubleshooting",
+    
+    "---Maintenance & Tips---",
+    "cleaning-tips"
+  ]
+}
