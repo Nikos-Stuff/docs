@@ -15,8 +15,8 @@ importers:
         specifier: 6.14.0
         version: 6.14.0
       brace-expansion:
-        specifier: 1.1.13
-        version: 1.1.13
+        specifier: 1.1.18
+        version: 1.1.18
       d3-force:
         specifier: ^3.0.0
         version: 3.0.0
@@ -1727,9 +1727,6 @@ packages:
 
   bezier-js@6.1.4:
     resolution: {integrity: sha512-PA0FW9ZpcHbojUCMu28z9Vg/fNkwTj5YhusSAjHHDfHDGLxJ6YUKrAN2vk1fP2MMOxVw4Oko16FMlRGVBGqLKg==}
-
-  brace-expansion@1.1.13:
-    resolution: {integrity: sha512-9ZLprWS6EENmhEOpjCYW2c8VkmOvckIJZfkr7rBW6dObmfgJ/L1GpSYW5Hpo9lDz4D1+n0Ckz8rU7FwHDQiG/w==}
 
   brace-expansion@1.1.18:
     resolution: {integrity: sha512-Edep/X9fGqVNmzKBVsDYIOtD+z1tuezV70LBjdCst9Tqu76lsnvRiZ6oTic1n+/BIwX6QDGAO94PN4N2SADvtw==}
@@ -5133,11 +5130,6 @@ snapshots:
   baseline-browser-mapping@2.11.18: {}
 
   bezier-js@6.1.4: {}
-
-  brace-expansion@1.1.13:
-    dependencies:
-      balanced-match: 1.0.2
-      concat-map: 0.0.1
 
   brace-expansion@1.1.18:
     dependencies:
