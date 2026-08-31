@@ -21,8 +21,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       flatted:
-        specifier: 3.4.2
-        version: 3.4.2
+        specifier: 3.4.4
+        version: 3.4.4
       fumadocs-core:
         specifier: 16.15.1
         version: 16.15.1(@mdx-js/mdx@3.1.1(supports-color@7.2.0))(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.2.6)(lucide-react@0.554.0(react@19.2.8))(next@16.3.2(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@24.13.3)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@7.2.0)(zod@4.4.3)
@@ -2253,9 +2253,6 @@ packages:
   flat-cache@4.0.1:
     resolution: {integrity: sha512-f7ccFPK3SXFHpx15UIGyRJ/FJQctuKZ0zVuN3frBo4HnK3cay9VEW0R6yPYFHC0AgqhukPzKjq22t5DmAyqGyw==}
     engines: {node: '>=16'}
-
-  flatted@3.4.2:
-    resolution: {integrity: sha512-PjDse7RzhcPkIJwy5t7KPWQSZ9cAbzQXcafsetQoD7sOJRQlGikNbx7yZp2OotDnJyrDcbyRq3Ttb18iYOqkxA==}
 
   flatted@3.4.4:
     resolution: {integrity: sha512-5+ybhBZANEJxaH3X5evAFatUxLfEHSr7n6kYJ+1Qd0mUqr4eu9gIf6GDbWHf8RJijHrjjO8G+la14SlL2SeS1Q==}
@@ -5873,8 +5870,6 @@ snapshots:
     dependencies:
       flatted: 3.4.4
       keyv: 4.5.4
-
-  flatted@3.4.2: {}
 
   flatted@3.4.4: {}
 
