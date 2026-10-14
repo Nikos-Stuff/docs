@@ -6,3 +6,6 @@ allowBuilds:
 onlyBuiltDependencies:
   - sharp
   - unrs-resolver
+peerDependencyRules:
+  allowAny:
+    - eslint
