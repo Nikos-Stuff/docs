@@ -10,7 +10,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@fumadocs/base-ui": "^16.17.2",
+    "@fumadocs/base-ui": "^16.17.9",
     "@orama/orama": "^3.1.18",
     "ajv": "8.20.0",
     "brace-expansion": "5.0.9",
@@ -25,8 +25,8 @@
     "next": "16.3.2",
     "path-to-regexp": "8.4.0",
     "picomatch": "2.3.2",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "react-force-graph-2d": "^1.29.2",
     "rollup": "4.62.5"
   },
@@ -38,10 +38,10 @@
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "eslint": "^10.12.0",
+    "eslint": "^10.14.0",
     "eslint-config-next": "16.2.11",
     "eslint-plugin-import-x": "^4.17.1",
-    "postcss": "^8.5.30",
+    "postcss": "^8.5.32",
     "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3"
