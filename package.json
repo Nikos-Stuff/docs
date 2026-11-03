@@ -17,7 +17,7 @@
     "d3-force": "^3.0.0",
     "flatted": "3.4.2",
     "fumadocs-core": "16.17.10",
-    "fumadocs-mdx": "15.4.7",
+    "fumadocs-mdx": "15.4.10",
     "fumadocs-ui": "npm:@fumadocs/base-ui",
     "lucide-react": "^0.554.0",
     "mdast-util-to-hast": "13.2.1",

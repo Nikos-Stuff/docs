@@ -3,6 +3,8 @@ allowBuilds:
   esbuild: true
   sharp: true
   unrs-resolver: true
+minimumReleaseAgeExclude:
+  - fumadocs-core@16.17.10
 onlyBuiltDependencies:
   - sharp
   - unrs-resolver
